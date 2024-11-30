@@ -21,24 +21,8 @@ const Channels = () => {
           );}
       });
     }
-  }, []);
-  // Initialize Sortable.js for horizontal sorting
-  // useEffect(() => {
-  //   if (sortableContainer.current) {
-  //     Sortable.create(sortableContainer.current, {
-  //       animation: 150,
-  //       direction: "horizontal", // Enable horizontal sorting
-  //       onEnd: (event) => {
-  //         const reordered = [...likedChannels];
-  //         const [movedItem] = reordered.splice(event.oldIndex, 1);
-  //         reordered.splice(event.newIndex, 0, movedItem);
-  //         setLikedChannels(reordered);
-  //         localStorage.setItem("likedChannelsOrder", JSON.stringify(reordered));
-  //       },
-  //     });
-  //   }
-  // }, [likedChannels]);
-
+  }, [likedChannels]);
+  
   // Handle like/unlike functionality
   const handleLike = (currentChannelName) => {
     const updatedData = channelData.map((category) => ({
