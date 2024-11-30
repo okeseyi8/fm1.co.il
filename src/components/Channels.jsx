@@ -51,20 +51,25 @@ const Channels = () => {
     console.log("hi", updatedLikedChannels, noRepeatedLiked)
     
   };
+   const handleRemove = (currentChannelName) => {
+    const delChannel =  likedChannels.filter((channel) => {
+      return channel.channelName !== currentChannelName
+    } )
+    const delChannelData = channelData.map((station) => ({
+      ...station,
+      channels: station.channels.map((channel) =>
+        channel.channelName === currentChannelName
+          ? { ...channel, isLiked: !channel.isLiked } // Correct transformation
+          : channel // Keep the channel unchanged
+      ),
+    }));
+    setChannelData(delChannelData)
+    setLikedChannels(delChannel)
+
+   }
   
 
-  // Load saved liked channels order from localStorage on mount
-  // useEffect(() => {
-  //   const savedOrder = localStorage.getItem("likedChannelsOrder");
-  //   if (savedOrder) {
-  //     setLikedChannels(JSON.parse(savedOrder));
-  //   } else {
-  //     const initialLikedChannels = channelData
-  //       .flatMap((category) => category.channels)
-  //       .filter((channel) => channel.isLiked);
-  //     setLikedChannels(initialLikedChannels);
-  //   }
-  // }, [channelData]);
+
 
   return (
     <div className="w-full flex justify-center">
@@ -72,38 +77,21 @@ const Channels = () => {
         <div className="w-full flex flex-col items-center">
           {
             likedChannels.length > 0 ? (
-              <ul className="w-full flex flex-wrap justify-center gap-5" ref={sortableContainer}>
+              <ul  className="w-full flex flex-wrap justify-center gap-5" ref={sortableContainer}>
                 {likedChannels.map((channel) => (
-                  <li className="flex  border-2 rounded-xl p-2 mt-3" key={Math.random}>
+                  <li className="relative flex  border-2 rounded-xl p-2 mt-3" key={Math.random}>
 
-                    {channel.channelName}
+                    {channel.channelName} 
+                    <button onClick={() => {
+                      handleRemove(channel.channelName)
+                    }} className="absolute -top-1 left-1 text-[#7aa7aa] text-[13px]"> x </button>
                   </li>
                 ))}
               </ul>
 
             ) : (<h1>No channels yet</h1>)
           }
-          {/* Liked Channels Zone with Horizontal Drag-and-Drop */}
-          {/* <div className="w-full my-4 p-4 bg-gray-100 border rounded">
-            <h2 className="text-lg font-bold text-gray-800">Liked Channels</h2>
-            {likedChannels.length > 0 ? (
-              <ul
-                ref={sortableContainer}
-                className="flex gap-4 overflow-x-auto" // Horizontal layout with scroll support
-              >
-                {likedChannels.map((channel) => (
-                  <li
-                    key={channel?.id}
-                    className="list-none text-[14px] leading-[25px] bg-white p-2 rounded shadow cursor-move whitespace-nowrap"
-                  >
-                    {channel?.channelName}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-sm text-gray-500">No channels liked yet.</p>
-            )}
-          </div> */}
+     
           <Dropzone />
           Ad Space
 
