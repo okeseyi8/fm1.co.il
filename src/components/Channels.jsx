@@ -9,16 +9,29 @@ import Channel from "./Channel";
 const Channels = () => {
   const [channelData, setChannelData] = useState(data);
   const [likedChannels, setLikedChannels] = useState([]);
+  const likedChannelsRef = useRef([]);
   const sortableContainer = useRef(null);
+  useEffect(() => {
+    // Update the ref whenever likedChannels changes
+    likedChannelsRef.current = likedChannels;
+  }, [likedChannels]);
   useEffect(() => {
     if (sortableContainer.current) {
       new Sortable(sortableContainer.current, {
         animation: 150,
         direction: "horizontal",
         onEnd: (evt) => {
-          const updatedOrder = Array.from(sortableContainer.current.children).map(
-            (child) => likedChannels[child.dataset.index]
-          );}
+         console.log(likedChannels)
+         const currentLikedChannels = likedChannelsRef.current;
+         console.log("Latest Liked Channels:", currentLikedChannels);
+         // this only logs the first liked station why chatgpt why
+           // Optionally update the order based on the new sortable positions
+        const updatedOrder = Array.from(sortableContainer.current.children).map((child) =>
+          currentLikedChannels.find((channel) => channel.channelName === child.dataset.id)
+        );
+        console.log("Updated Order:", updatedOrder);
+        
+        }
       });
     }
   }, [likedChannels]);
@@ -78,8 +91,8 @@ const Channels = () => {
           {
             likedChannels.length > 0 ? (
               <ul  className="w-full flex flex-wrap justify-center gap-5" ref={sortableContainer}>
-                {likedChannels.map((channel) => (
-                  <li className="relative flex  border-2 rounded-xl p-2 mt-3" key={Math.random}>
+                {likedChannels.map((channel, index) => (
+                  <li data-id={channel.channelName} className="relative flex  border-2 rounded-xl p-2 mt-3" key={channel.channelName}>
 
                     {channel.channelName} 
                     <button onClick={() => {
