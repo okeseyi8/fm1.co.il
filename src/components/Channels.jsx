@@ -1,30 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createContext, useContext } from "react";
+
 import Sortable from "sortablejs";
 import Dropzone from "./Dropzone";
 import data from "../data/data";
 import Channel from "./Channel";
+import { GlobalData } from "../App";
+
 
 const Channels = () => {
-  const [channelData, setChannelData] = useState(() => {
-    try {
-      const savedData = localStorage.getItem("channelData");
-      return savedData ? JSON.parse(savedData) : data;
-    } catch {
-      return data;
-    }
-  });
+  const {channelData, setChannelData, likedChannels, setLikedChannels, handleLike, handleRemove, likedChannelsRef, sortableContainer} = useContext(GlobalData)
+ 
 
-  const [likedChannels, setLikedChannels] = useState(() => {
-    try {
-      const savedLikedChannels = localStorage.getItem("likedChannels");
-      return savedLikedChannels ? JSON.parse(savedLikedChannels) : [];
-    } catch {
-      return [];
-    }
-  });
-
-  const likedChannelsRef = useRef(likedChannels);
-  const sortableContainer = useRef(null);
+  // const likedChannelsRef = useRef(likedChannels);
+  // const sortableContainer = useRef(null);
 
   useEffect(() => {
     likedChannelsRef.current = likedChannels;
@@ -67,40 +55,7 @@ const Channels = () => {
     };
   }, [likedChannels]);
 
-  const handleLike = (currentChannelName) => {
-    const updatedData = channelData.map((category) => ({
-      ...category,
-      channels: category.channels.map((channel) =>
-        channel.channelName === currentChannelName
-          ? { ...channel, isLiked: !channel.isLiked }
-          : channel
-      ),
-    }));
-    setChannelData(updatedData);
-
-    const noRepeatedLiked = updatedData
-      .flatMap((category) => category.channels)
-      .filter((channel, index, self) => channel.isLiked && self.findIndex(c => c.channelName === channel.channelName) === index);
-
-    setLikedChannels(noRepeatedLiked);
-  };
-
-  const handleRemove = (currentChannelName) => {
-    const updatedLikedChannels = likedChannels.filter(
-      (channel) => channel.channelName !== currentChannelName
-    );
-    setLikedChannels(updatedLikedChannels);
-
-    const updatedData = channelData.map((category) => ({
-      ...category,
-      channels: category.channels.map((channel) =>
-        channel.channelName === currentChannelName
-          ? { ...channel, isLiked: false }
-          : channel
-      ),
-    }));
-    setChannelData(updatedData);
-  };
+ 
 
   return (
     <div className="w-full flex justify-center">
