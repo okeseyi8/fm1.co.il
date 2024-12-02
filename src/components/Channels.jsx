@@ -7,7 +7,7 @@ function Channels() {
   return (
     <div className='w-full flex flex-col items-center'>
           {channelData.map((category) => (
-              <div dir="rtl" className="w-[30%]" key={category.id}>
+              <div dir="rtl" className="w-[100%]" key={category.id}>
                 <h2 className="border-0 border-b border-b-[#7a7a7a]">
                   {category.channelCategoryName}
                 </h2>

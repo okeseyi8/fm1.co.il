@@ -3,20 +3,32 @@ import Header from "../components/Header";
 import { useParams, useNavigate } from "react-router-dom";
 import Dropzone from "../components/Dropzone";
 import Channels from "../components/Channels";
+import Player from "../components/Player"
 const Station = () => {
   return (
     <div className=" hidden sm:block body ">
       <Header />
       <div className="w-full flex justify-center">
-      <div className="w-10/12 lg:w-8/12 bg-white">
+      <div className="w-10/12 flex lg:w-8/12 bg-white">
         <div className="w-full flex flex-col items-center">
          
           <Dropzone />
-          
-          <br />Ad Space
-          <Channels />
+          Ad Space
 
+          <div className="w-full flex flex-col p-3 ">
+            <h1 className="text-end">Now Playing: Dynamic naming</h1>
+            <div className="w-full flex justify-between ">
+              <div className="w-[50%]"> Ad Space 2</div>
+              <div className="w-[50%]">
+                <Player />
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div className="w-[40%] pr-3 flex flex-col items-center">
          
+           <Channels />
         </div>
       </div>
     </div>

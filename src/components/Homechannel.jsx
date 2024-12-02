@@ -33,7 +33,7 @@ const Homechannel = () => {
                 ))}
               </div>
             ))}
-            <Channels />
+            {/* <Channels /> */}
           </div>
         </div>
       </div>

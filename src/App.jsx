@@ -6,7 +6,7 @@ import "./App.css";
 
 import data from "./data/data";
 import Sortable from "sortablejs";
-import Station from "./pages/station";
+import Station from "./pages/Station";
 // import { Routes } from 'react-router-dom'
 
 export const GlobalData = createContext();
