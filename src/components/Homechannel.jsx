@@ -23,7 +23,7 @@ const Homechannel = () => {
           <div className="flex gap-8 justify-center flex-wrap">
             {channelData.map((category) => (
               <div dir="rtl" className="w-[15%]" key={category.id}>
-                <h2 className="border-0 border-b border-b-[#7a7a7a]">
+                <h2 className="border-0 border-b border-b-[#7a7a7a] text-[#587493] font-bold text-[16px]">
                   {category.channelCategoryName}
                 </h2>
                 {category.channels.map((channel) => (

@@ -27,7 +27,7 @@ function Channels() {
         const isCollapsed = collapseStates[category.id];
         return (
           <div dir="rtl" className="w-[100%]" key={category.id}>
-            <h2 className="border-0 border-b border-b-[#7a7a7a] flex justify-between items-center">
+            <h2 className="border-0 border-b border-b-[#7a7a7a] text-[#587493] font-bold text-[16px] flex justify-between items-center">
               {category.channelCategoryName}
               {location.pathname.startsWith(pathtoShowCollapse) && (
                 <button
