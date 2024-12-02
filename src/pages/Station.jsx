@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import { useParams, useNavigate } from "react-router-dom";
 import Dropzone from "../components/Dropzone";
-
+import Channels from "../components/Channels";
 const Station = () => {
   return (
     <div className=" hidden sm:block body ">
@@ -14,6 +14,7 @@ const Station = () => {
           <Dropzone />
           
           <br />Ad Space
+          <Channels />
 
          
         </div>
