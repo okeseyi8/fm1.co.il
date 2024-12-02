@@ -7,49 +7,49 @@ const data = [
             {
                 "id": "a1",
                 "channelName": "רדיו קול חי",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a2",
                 "channelName": "רדיו קול ברמה",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a3",
                 "channelName": "ערוץ 7",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a4",
                 "channelName": "כאן מורשת",
-                "link": "url",
-                "image": "imageUrl",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "image": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
                 "isLiked": false
             },
             {
                 "id": "a5",
                 "channelName": "רדיו ברסלב",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a6",
                 "channelName": "רדיו 2000",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a7",
                 "channelName": "רדיו עידן תשובה",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
@@ -57,13 +57,13 @@ const data = [
                 "id": "a8",
                 "channelName": "רדיו קבלה",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
                 "isLiked": false
             },
             {
                 "id": "a9",
                 "channelName": "הרדיו של מנחם טוקר",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             }
@@ -77,21 +77,21 @@ const data = [
             {
                 "id": "b1",
                 "channelName": "רדיו דרום",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "b2",
-                "channelName": "רדיו דרום",
-                "link": "url",
+                "channelName": "רדיו דרום" ,
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "b3",
                 "channelName": "רדיו אקו 99FM",
-                "link": "url",
+                "link": "http://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
                 "image": "imageUrl",
                 "isLiked": false
             },

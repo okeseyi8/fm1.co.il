@@ -88,7 +88,7 @@ function App() {
         <div className="App">
           <div className="flex justify-center">
             <div className=" w-9/12 h-screen sm:hidden flex flex-col justify-center items-center text-[24px] ">
-              {" "}
+              {/* {" "} */}
               Mobile Version coming...
               <p className="text-center text-[14px]">
                 I am currently trying to make to rebuild everything with reactjs
