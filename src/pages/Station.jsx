@@ -9,18 +9,22 @@ const Station = () => {
     <div className=" hidden sm:block body ">
       <Header />
       <div className="w-full flex justify-center">
-      <div className="w-10/12 flex lg:w-8/12 bg-white">
+      <div className="w-10/12 flex max-h-[700px] h-screen overflow-auto lg:w-8/12  bg-white">
         <div className="w-full flex flex-col items-center">
          
           <Dropzone />
           Ad Space
 
           <div className="w-full flex flex-col p-3 ">
-            <h1 className="text-end">Now Playing: Dynamic naming</h1>
+            <h1 className="text-end mb-5">Now Playing: Dynamic naming</h1>
             <div className="w-full flex justify-between ">
-              <div className="w-[50%]"> Ad Space 2</div>
-              <div className="w-[50%]">
-                <Player />
+              <div className="w-[30%]"> Ad Space 2</div>
+              <div className="w-[70%] ">
+                
+                <div className="w-[50%]">
+                   <Player />
+                </div>
+                <div className="w-[50%]"></div>
               </div>
             </div>
             
