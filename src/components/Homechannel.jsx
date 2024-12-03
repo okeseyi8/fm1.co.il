@@ -7,6 +7,8 @@ import Channel from "./Channel";
 import { GlobalData } from "../App";
 import Channels from "./Channels";
 import AdSpaceOne from "./AdSpaceOne";
+import Bottomcontent from "./Bottomcontent";
+import Footer from "./Footer";
 
 const Homechannel = () => {
   const stationUrl = "/station/"
@@ -35,8 +37,13 @@ const Homechannel = () => {
             ))}
             {/* <Channels /> */}
           </div>
+          <AdSpaceOne />
         </div>
+        <Bottomcontent />
+        {/* <Footer />  */}
+        <Footer />
       </div>
+      
     </div>
   );
 };
