@@ -10,7 +10,7 @@ const Channel = ({ channel, handleLike, id }) => {
     <div dir='rtl' className="flex justify-between items-center my-2">
       <div className="w-full flex gap-1 items-center">
         <img className=" w-4 h-4 " src={logo} alt="logo" />
-        <button onClick={() => navigate(`${stationUrl}${id}`)}>{channel.channelName}</button>
+        <button className='text-[12px] font-bold text-[#393939]' onClick={() => navigate(`${stationUrl}${id}`)}>{channel.channelName}</button>
       </div>
       <button onClick={() => handleLike(channel.channelName)} className="w-[10%]">
         {channel.isLiked ? (

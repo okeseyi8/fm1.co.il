@@ -18,7 +18,7 @@ const Homechannel = () => {
          
           <Dropzone />
           
-          <br /><AdSpaceOne/>
+          <AdSpaceOne/>
 
           <div className="flex gap-8 justify-center flex-wrap">
             {channelData.map((category) => (

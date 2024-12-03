@@ -70,7 +70,7 @@ const Dropzone = () => {
               ))}
             </ul>
           ) : (
-            <h1>No channels yet</h1>
+            <h1 className="">No Liked channels yet</h1>
           )}
       
       
