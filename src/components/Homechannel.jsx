@@ -6,7 +6,7 @@ import data from "../data/data";
 import Channel from "./Channel";
 import { GlobalData } from "../App";
 import Channels from "./Channels";
-
+import AdSpaceOne from "./AdSpaceOne";
 
 const Homechannel = () => {
   const stationUrl = "/station/"
@@ -18,7 +18,7 @@ const Homechannel = () => {
          
           <Dropzone />
           
-          <br />Ad Space
+          <br /><AdSpaceOne/>
 
           <div className="flex gap-8 justify-center flex-wrap">
             {channelData.map((category) => (

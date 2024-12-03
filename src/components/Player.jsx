@@ -24,15 +24,15 @@ function Player() {
 
 
   return (
-  <div>
+  <div className='w-full'>
 
-       <div className='w-[200px] h-[150px] border-[1px] border-[#000] flex justify-center items-center py-5 rounded-md bg-[#E1C4C4]'>
+       <div className='w-[250px] h-[150px] border-[1px] border-[#000] flex justify-center items-center py-5 rounded-md bg-[#E1C4C4]'>
             
             <div className="relative z-20" onClick={handlePlay}>
-              <div className='absolute top-3 left-3 bg-white -z-10 w-[45px] h-[45px]'></div>
+              <div className='absolute top-3 left-3 bg-white -z-10 w-[40px] h-[35px]'></div>
                     {
-                        !isPlaying ? <FaPlayCircle className='text-[#0000ff] text-[70px] z-40' />
-                        : <FaCirclePause  className='text-[#0000ff] text-[70px] z-30' />
+                        !isPlaying ? <FaPlayCircle className='text-[#1C5BD0] text-[60px] z-40' />
+                        : <FaCirclePause  className='text-[#1C5BD0] text-[60px] z-30' />
                     }
                   
                   {

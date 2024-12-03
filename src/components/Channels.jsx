@@ -31,10 +31,10 @@ function Channels() {
               {category.channelCategoryName}
               {location.pathname.startsWith(pathtoShowCollapse) && (
                 <button
-                  className="lg:pl-2"
+                  className=""
                   onClick={() => toggleCollapse(category.id)}
                 >
-                  {isCollapsed ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}
+                  {!isCollapsed ? <MdKeyboardArrowDown /> : <MdKeyboardArrowRight />}
                 </button>
               )}
             </h2>
@@ -43,7 +43,7 @@ function Channels() {
             <ul
               className={`overflow-hidden transition-all duration-300 ease-in-out`}
               style={{
-                maxHeight: isCollapsed ? `${category.channels.length * 50}px` : "0",
+                maxHeight: !isCollapsed ? `${category.channels.length * 50}px` : "0",
               }}
             >
               {category.channels.map((channel) => (
