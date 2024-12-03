@@ -15,10 +15,23 @@ const Station = () => {
   
 
   const {id}  = useParams()
-  const {channelData} = useContext(GlobalData)
+  const {channelData, setStation, currentStation, setIsPlaying, playerRef, handlePlay, isPlaying} = useContext(GlobalData)
   useEffect(() => {
-    console.log("useParams here: ", id)
-  })
+    if (channelData.length > 0) {
+      setStation(id, channelData);
+    }
+  
+    // Cleanup logic only when the component unmounts
+    return () => {
+      if (isPlaying) {
+        setIsPlaying(false); // Reset the playing state
+        playerRef.current?.pause(); // Pause the player
+      }
+    };
+  }, [id, channelData, setStation, setIsPlaying, playerRef]);
+  const handleMountChecks = () => {
+    console.log(currentStation)
+  }
   return (
     <div className=" hidden sm:block body ">
       <Header />
@@ -45,6 +58,7 @@ const Station = () => {
                     }
                   </h1>
                   </div>
+                  <button onClick={handleMountChecks}> Mounted</button>
               <div className="flex lg:flex-row lg:items-start lg:justify-between flex-col justify-center items-center pb-[60px] border-0 border-b ">
                 <div className="flex flex-col items-center justify-center text-[#3e466b] font-bold text-[14px]">
                   <Player />

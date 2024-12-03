@@ -12,13 +12,8 @@ function Playbutton({handlePlay, isPlaying, playerRef, channelData, id}) {
                 : <FaCirclePause  className='text-[#1C5BD0] text-[60px] z-30' />
             }
         
-        {
-            channelData.map((channel) => (
-            channel.channels.map((station) => (
-                station.channelName === id && <div> <audio ref={playerRef} src={station.link}/></div>
-            ))
-            ))
-        }</div>
+        
+        </div>
 
   </div>
     

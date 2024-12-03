@@ -20,20 +20,39 @@ function App() {
       return data;
     }
   });
+  const [currentStation, setCurrentStation] = useState({})
   //PLyer logiC 
   
-  const playerRef = useRef(null)
+  const playerRef = useRef(new Audio())
   
     const [isPlaying, setIsPlaying] = useState(false);
     const handlePlay = () => {
+      if (!currentStation) return;
         if(isPlaying){
           playerRef.current?.pause();
-          setIsPlaying(!isPlaying)
+          setIsPlaying(false)
         }else{
+          playerRef.current.src = currentStation.link;
           playerRef.current?.play();
-          setIsPlaying(!isPlaying)
+          setIsPlaying(true)
         }
     }
+    const setStation = (id, channelInfo) => {
+      console.log("Station ID:", id);
+      console.log("Channel Info:", channelInfo);
+    
+      const station = channelInfo
+        ?.flatMap(channel => channel.channels)
+        ?.find(station => station.channelName === id);
+    
+      if (station) {
+        console.log("Found Station:", station);
+        setCurrentStation(station);
+      } else {
+        console.log("No station found with the given ID.");
+        setCurrentStation(null);
+      }
+    };
 
   const [likedChannels, setLikedChannels] = useState(() => {
     try {
@@ -96,9 +115,12 @@ function App() {
         handleRemove,
         likedChannelsRef,
         sortableContainer,
+        currentStation,
         
-        handlePlay, 
+        handlePlay,
+        setStation, 
         isPlaying,
+        setIsPlaying,
         playerRef
 
         
