@@ -10,6 +10,7 @@ import AdSpaceTwo from "../components/AdSpaceTwo";
 import Acum from '../images/acum.png'
 import dummy from "../images/glgltz.png"
 import Footer from "../components/Footer";
+import Bottomplayer from "../components/Bottomplayer";
 const Station = () => {
   
 
@@ -93,6 +94,7 @@ const Station = () => {
         <div className="pt-2">
            <Footer />
         </div>
+        <Bottomplayer />
       
     </div>
   );

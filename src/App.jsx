@@ -1,5 +1,5 @@
 import { useState, createContext, useRef, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import Home from "./components/Home";
 
 import "./App.css";
@@ -20,6 +20,20 @@ function App() {
       return data;
     }
   });
+  //PLyer logiC 
+  
+  const playerRef = useRef(null)
+  
+    const [isPlaying, setIsPlaying] = useState(false);
+    const handlePlay = () => {
+        if(isPlaying){
+          playerRef.current?.pause();
+          setIsPlaying(!isPlaying)
+        }else{
+          playerRef.current?.play();
+          setIsPlaying(!isPlaying)
+        }
+    }
 
   const [likedChannels, setLikedChannels] = useState(() => {
     try {
@@ -82,6 +96,12 @@ function App() {
         handleRemove,
         likedChannelsRef,
         sortableContainer,
+        
+        handlePlay, 
+        isPlaying,
+        playerRef
+
+        
       }}
     >
       <Router>
