@@ -58,7 +58,7 @@ const Station = () => {
                     }
                   </h1>
                   </div>
-                  <button onClick={handleMountChecks}> Mounted</button>
+                  {/* <button onClick={handleMountChecks}> Mounted</button> */}
               <div className="flex lg:flex-row lg:items-start lg:justify-between flex-col justify-center items-center pb-[60px] border-0 border-b ">
                 <div className="flex flex-col items-center justify-center text-[#3e466b] font-bold text-[14px]">
                   <Player />
