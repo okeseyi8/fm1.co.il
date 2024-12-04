@@ -7,49 +7,49 @@ const data = [
             {
                 "id": "a1",
                 "channelName": "רדיו קול חי",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a2",
                 "channelName": "רדיו קול ברמה",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
+                "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_BET.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a3",
                 "channelName": "ערוץ 7",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a4",
                 "channelName": "כאן מורשת",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_88.mp3",
                 "image": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
                 "isLiked": false
             },
             {
                 "id": "a5",
                 "channelName": "רדיו ברסלב",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a6",
                 "channelName": "רדיו 2000",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
+                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "a7",
                 "channelName": "רדיו עידן תשובה",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
@@ -57,13 +57,13 @@ const data = [
                 "id": "a8",
                 "channelName": "רדיו קבלה",
                 "link": "url",
-                "image": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
+                "image": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "isLiked": false
             },
             {
                 "id": "a9",
                 "channelName": "הרדיו של מנחם טוקר",
-                "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
+                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             }

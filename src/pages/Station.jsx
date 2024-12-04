@@ -48,14 +48,11 @@ const Station = () => {
             </div>
             <div className=" w-[82%] ">
                     <div className="">    <h1 className=" w-full text-end mb-5 border-0 border-b pr-3 ">
-                    {
-                      channelData.map((channel, index) => (
-                        channel.channels.map((station, index) => (
-                          (station.channelName === id) && 
-                          <div className="flex justify-end text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">Now Playing: </h1>  {station.channelName} <audio /></div>
-                        ))
-                      ))
-                    }
+                    
+                     <div className="flex justify-end text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">Now Playing: </h1>  {
+                      currentStation.channelName
+                    } </div>
+                   
                   </h1>
                   </div>
                   {/* <button onClick={handleMountChecks}> Mounted</button> */}
@@ -69,14 +66,9 @@ const Station = () => {
               </div>
               <div>
               <h1 className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
-               {
-                      channelData.map((channel, index) => (
-                        channel.channels.map((station, index) => (
-                          (station.channelName === id) && 
-                          <div className="flex justify-end text-[19px] items-center  gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold"> About:  </h1>  {station.channelName} <audio /></div>
-                        ))
-                      ))
-                    }
+              <div className="flex justify-end text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">About: </h1>  {
+                      currentStation.channelName
+                    } </div>
               </h1>
               <p dir="rtl" className="text-[12px] font-light text-[#6b6b6b] mr-3">
               גלגלצ היא תחנת הרדיו הפופולרית ביותר בישראל ומובילת דעה בכל מה שקשור למוזיקה עכשווית, לועזית וישראלית. רדיו גלגלצ הוא המקום לכל מי שרוצה להיות בעניינים, להתעדכן בלהיטים הכי חמים ולשמוע מוזיקה טובה ומגוונת 24 שעות ביממה. מפופ ומיינסטרים, דרך אלטרנטיבי ורוק ועד מוזיקה ים-תיכונית, בגלגלצ תמצאו הכל.
