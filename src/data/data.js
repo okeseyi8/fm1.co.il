@@ -9,14 +9,14 @@ const data = [
                 "channelName": "רדיו קול חי",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "a2",
                 "channelName": "רדיו קול ברמה",
                 "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_BET.mp3",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "a3",
@@ -30,7 +30,7 @@ const data = [
                 "channelName": "כאן מורשת",
                 "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_88.mp3",
                 "image": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "a5",
@@ -58,7 +58,7 @@ const data = [
                 "channelName": "רדיו קבלה",
                 "link": "url",
                 "image": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "a9",
@@ -79,14 +79,14 @@ const data = [
                 "channelName": "רדיו דרום",
                 "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "b2",
                 "channelName": "רדיו דרום" ,
                 "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "b3",
@@ -100,14 +100,14 @@ const data = [
                 "channelName": "רדיוס 100FM",
                 "link": "url",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "b5",
                 "channelName": "רדיו תל אביב 102FM",
                 "link": "url",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "b6",
@@ -121,7 +121,7 @@ const data = [
                 "channelName": "רדיו ירושלים 101FM",
                 "link": "url",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "b8",
@@ -155,7 +155,7 @@ const data = [
                 "channelName": "גלגלצ",
                 "link": "url",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "c2",
@@ -197,7 +197,7 @@ const data = [
                 "channelName": "כאן תרבות (רשת א')",
                 "link": "url",
                 "image": "imageUrl",
-                "isLiked": false
+                "isLiked": true
             },
             {
                 "id": "c8",

@@ -21,6 +21,7 @@ function App() {
     }
   });
   const [currentStation, setCurrentStation] = useState({})
+  const [volume, setVolume] = useState(1)
   //PLyer logiC 
   
   const playerRef = useRef(new Audio())
@@ -36,6 +37,13 @@ function App() {
           playerRef.current?.play();
           setIsPlaying(true)
         }
+    }
+    const handleVolume = (e) => {
+      const  {value}  = e.target;
+      const volume = value / 20;
+      // setVolume(volume)
+      playerRef.current.volume = volume;
+
     }
     const setStation = (id, channelInfo) => {
       console.log("Station ID:", id);
@@ -118,7 +126,9 @@ function App() {
         currentStation,
         
         handlePlay,
-        setStation, 
+        handleVolume,
+        setStation,
+        volume,  
         isPlaying,
         setIsPlaying,
         playerRef

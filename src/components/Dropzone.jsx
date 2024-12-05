@@ -9,6 +9,23 @@ import { GlobalData } from '../App'
 const Dropzone = () => {
   const {channelData, setChannelData, likedChannels, setLikedChannels, handleLike, handleRemove, likedChannelsRef, sortableContainer} = useContext(GlobalData)
   useEffect(() => {
+    const seenChannelNames = new Set();
+    const liked = [];
+
+    channelData.forEach((channel) => {
+      channel.channels.forEach((station) => {
+        if (station.isLiked && !seenChannelNames.has(station.channelName)) {
+          // Add to liked list if it's liked and not already added
+          liked.push(station);
+          seenChannelNames.add(station.channelName);
+        }
+      });
+    });
+
+    setLikedChannels(liked);
+  }, [channelData]);
+
+  useEffect(() => {
     likedChannelsRef.current = likedChannels;
     localStorage.setItem("likedChannels", JSON.stringify(likedChannels));
   }, [likedChannels]);

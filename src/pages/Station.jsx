@@ -49,7 +49,7 @@ const Station = () => {
             <div className=" w-[82%] ">
                     <div className="">    <h1 className=" w-full text-end mb-5 border-0 border-b pr-3 ">
                     
-                     <div className="flex justify-end text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">Now Playing: </h1>  {
+                     <div dir="rtl" className="flex justify-start text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold"> מנגן עכשיו:</h1>  {
                       currentStation.channelName
                     } </div>
                    
@@ -66,7 +66,8 @@ const Station = () => {
               </div>
               <div>
               <h1 className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
-              <div className="flex justify-end text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">About: </h1>  {
+              <div dir="rtl" className="flex justify-start text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">  אודות :
+</h1>  {
                       currentStation.channelName
                     } </div>
               </h1>
