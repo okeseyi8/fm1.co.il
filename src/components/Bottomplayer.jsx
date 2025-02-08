@@ -4,6 +4,7 @@ import { useContext, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Playbutton from './Playbutton';
 import { GlobalData } from '../App';
+import { useNavigate } from 'react-router-dom';
 import logo from '../images/fmlogo.jpg'
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import BottomLike from './BottomLike';
@@ -15,7 +16,9 @@ function Bottomplayer() {
   const {channelData,  playerRef, isPlaying, handlePlay, currentStation, handleVolume, handleLike} = useContext(GlobalData)
   const max = 1
   const min = 0
-  const {id} = useParams()
+  const {id} = useParams();
+  const navigate = useNavigate();
+  const stationUrl = "/station/"
   useEffect(() => {
     // Dynamically load the Facebook SDK script
 
@@ -70,10 +73,16 @@ function Bottomplayer() {
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
               <div  dir="rtl" className='flex flex-col items-end font-normal text-[12px] text-[#009fce]'>
-                {currentStation.channelName}
+               <button>
+                 {currentStation.channelName}
+               </button>
+                
                 <p> מנגן עכשיו</p>
               </div>
-              <img className='w-10 h-10' src={logo}/>
+              <button  className='cursor-pointer' onClick={() => navigate(`${stationUrl}${currentStation.channelName}`)}>
+                
+                <img className='w-10 h-10' src={currentStation.image}/>
+              </button>
             </div>
           </div>
        </div>

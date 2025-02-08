@@ -56,13 +56,13 @@ const Station = () => {
                   </h1>
                   </div>
                   {/* <button onClick={handleMountChecks}> Mounted</button> */}
-              <div className="flex lg:flex-row lg:items-start lg:justify-between flex-col justify-center items-center pb-[60px] border-0 border-b ">
+              <div className="flex lg:flex-row lg:items-start lg:justify-center lg:gap-[120px] flex-col justify-center items-center pb-[60px] border-0 border-b ">
                 <div className="flex flex-col items-center justify-center text-[#3e466b] font-bold text-[14px]">
                   <Player />
-                  האתר פועל ברשיון 
-                  <img src={Acum}/>
+                  {/* האתר פועל ברשיון 
+                  <img src={Acum}/> */}
                 </div>
-                <div> <img  className="lg:mt-4 lg:mr-[4px] border-4 h-auto border-[#f1f1f1] rounded-md" src={dummy} /></div>
+                <div className="w-"> <img  className="w-[250px] h-[150px] lg:mr-[4px] border-4  border-[#f1f1f1] rounded-md" src={currentStation.image} /></div>
               </div>
               <div>
               <h1 className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
@@ -96,9 +96,10 @@ const Station = () => {
             
            <Channels />
         </div>
+       
       </div>
     </div>
-        <div className="pt-2">
+        <div className="pt-2 mb-[100px]">
            <Footer />
         </div>
         <Bottomplayer />
