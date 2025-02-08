@@ -1,0 +1,20 @@
+/* Default: Make the remove button nearly invisible */
+.remove-button {
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+/* When hovering over the entire list item, increase opacity */
+.channel-item:hover .remove-button {
+  opacity: 0.6;
+}
+
+/* When hovering over the button itself, make it fully visible */
+.channel-item .remove-button:hover {
+  opacity: 1;
+}
+
+/* When hovering over the image, the remove button gets semi-opacity */
+.channel-item img:hover + .remove-button {
+  opacity: 0.5;
+}

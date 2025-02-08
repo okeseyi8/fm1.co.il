@@ -8,63 +8,63 @@ const data = [
                 "id": "a1",
                 "channelName": "רדיו קול חי",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": true
             },
             {
                 "id": "a2",
                 "channelName": "רדיו קול ברמה",
                 "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_BET.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/70s.png",
                 "isLiked": true
             },
             {
                 "id": "a3",
                 "channelName": "ערוץ 7",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/80s.png",
                 "isLiked": false
             },
             {
                 "id": "a4",
                 "channelName": "כאן מורשת",
                 "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_88.mp3",
-                "image": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
+                "image": "/images/stations/91fm.png",
                 "isLiked": true
             },
             {
                 "id": "a5",
                 "channelName": "רדיו ברסלב",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "a6",
                 "channelName": "רדיו 2000",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/103fm.png",
                 "isLiked": false
             },
             {
                 "id": "a7",
                 "channelName": "רדיו עידן תשובה",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "a8",
                 "channelName": "רדיו קבלה",
                 "link": "url",
-                "image": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "image":"/images/stations/classicfm.png",
                 "isLiked": true
             },
             {
                 "id": "a9",
                 "channelName": "הרדיו של מנחם טוקר",
                 "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
-                "image": "imageUrl",
+                "image": "/images/stations/eco99fm.png",
                 "isLiked": false
             }
         ]
@@ -78,70 +78,70 @@ const data = [
                 "id": "b1",
                 "channelName": "רדיו דרום",
                 "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": true
             },
             {
                 "id": "b2",
                 "channelName": "רדיו דרום" ,
                 "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_med/ICE-live",
-                "image": "imageUrl",
+                "image": "/images/stations/glgltz.png",
                 "isLiked": true
             },
             {
                 "id": "b3",
                 "channelName": "רדיו אקו 99FM",
                 "link": "https://player.gl.bynetcdn.com/Redirector/glz/glglz_hits/ICE-live",
-                "image": "imageUrl",
+                "image": "/images/stations/glglz-rock.png",
                 "isLiked": false
             },
             {
                 "id": "b4",
                 "channelName": "רדיוס 100FM",
-                "link": "url",
-                "image": "imageUrl",
+                "link": "/images/stations/100fm.png",
+                "image": "/images/stations/eco99fm.png",
                 "isLiked": true
             },
             {
                 "id": "b5",
                 "channelName": "רדיו תל אביב 102FM",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": true
             },
             {
                 "id": "b6",
                 "channelName": "רדיו ללא הפסקה 103FM",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "b7",
                 "channelName": "רדיו ירושלים 101FM",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": true
             },
             {
                 "id": "b8",
                 "channelName": "רדיו לב המדינה 91FM",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "b9",
                 "channelName": "רדיו אמצע הדרך 90FM",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "b10",
                 "channelName": "רדיו קול רגע",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             }
         ]
@@ -154,63 +154,63 @@ const data = [
                 "id": "c1",
                 "channelName": "גלגלצ",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": true
             },
             {
                 "id": "c2",
                 "channelName": "כאן 88",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/classicfm.png",
                 "isLiked": false
             },
             {
                 "id": "c3",
                 "channelName": "גלי ישראל",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/88fm.png",
                 "isLiked": false
             },
             {
                 "id": "c4",
                 "channelName": "כאן ב' (רשת ב')",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "c5",
                 "channelName": "גלי צ",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/88fm.png",
                 "isLiked": false
             },
             {
                 "id": "c6",
                 "channelName": "כאן קול המוסיקה",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/classicfm.png",
                 "isLiked": false
             },
             {
                 "id": "c7",
                 "channelName": "כאן תרבות (רשת א')",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/glgltz.png",
                 "isLiked": true
             },
             {
                 "id": "c8",
                 "channelName": "כאן מכאן רדיו בערבית (רשת ד')",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/88fm.png",
                 "isLiked": false
             },
             {
                 "id": "c9",
                 "channelName": "גלגלצ סופשבוע רגוע",
                 "link": "url",
-                "image": "imageUrl",
+                "image": "/images/stations/100fm.png",
                 "isLiked": false
             }
         ]

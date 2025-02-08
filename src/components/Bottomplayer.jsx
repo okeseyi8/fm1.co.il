@@ -6,7 +6,7 @@ import Playbutton from './Playbutton';
 import { GlobalData } from '../App';
 import logo from '../images/fmlogo.jpg'
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-
+import BottomLike from './BottomLike';
 import { FaVolumeHigh } from "react-icons/fa6";
 import { FaVolumeXmark } from "react-icons/fa6";
 import { FaVolumeLow } from "react-icons/fa6";
@@ -66,14 +66,7 @@ function Bottomplayer() {
                 </div>
             </div>
             <div className='w-[20%]'>
-              <button className='' onClick={() => handleLike(currentStation.channelName)}>
-                {
-                  currentStation.isLiked ? <FaHeart className='text-[1.5rem] text-[#EF4444]' /> : <FaRegHeart className='text-[1.5rem] text-[#EF4444]' />
-                }
-
-              </button>
-            
-              
+                <BottomLike />
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
               <div  dir="rtl" className='flex flex-col items-end font-normal text-[12px] text-[#009fce]'>

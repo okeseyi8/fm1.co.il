@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, createContext, useContext } from "r
 import Sortable from "sortablejs";
 import { GlobalData } from '../App'
 
-
+import "./css/Dropzone.css"
 
 
 const Dropzone = () => {
@@ -69,23 +69,20 @@ const Dropzone = () => {
   return (
     <div>
         {likedChannels.length > 0 ? (
-            <ul className="w-full flex flex-wrap justify-center gap-5" ref={sortableContainer}>
-              {likedChannels.map((channel) => (
-                <li
-                  data-id={channel.channelName}
-                  className="relative flex border-2 rounded-xl p-2 mt-3"
-                  key={channel.channelName}
-                >
-                  {channel.channelName}
-                  <button
-                    onClick={() => handleRemove(channel.channelName)}
-                    className="absolute -top-1 left-1 text-[#7aa7aa] text-[13px]"
-                  >
-                    x
-                  </button>
-                </li>
-              ))}
-            </ul>
+       <ul className="w-full flex flex-wrap justify-center gap-5" ref={sortableContainer}>
+       {likedChannels.map((channel) => (
+         <li data-id={channel.channelName} className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] rounded-[10px]" key={channel.channelName}>
+           <img className="w-[60px] h-[60px]" src={channel.image} />
+           <button onClick={() => handleRemove(channel.channelName)} className="remove-button absolute -top-1 left-1 text-[#415a5c] text-[16px]">
+             x
+           </button>
+         </li>
+       ))}
+     </ul>
+     
+      
+         
+          
           ) : (
             <h1 className="">No Liked channels yet</h1>
           )}

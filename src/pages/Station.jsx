@@ -36,7 +36,7 @@ const Station = () => {
     <div className=" hidden sm:block body ">
       <Header />
       <div className="w-full flex justify-center ">
-      <div className="w-10/12 flex h-auto overflow-auto lg:w-8/12  bg-white pb-10">
+      <div className="w-full flex h-auto overflow-auto lg:w-10/12  bg-white pb-10">
         <div className="w-full flex flex-col items-center">
           
           <Dropzone />
@@ -90,7 +90,7 @@ const Station = () => {
             
           </div>
         </div>
-        <div className="w-[26%] pr-3 flex flex-col items-center">
+        <div className="lg:w-[26%] pr-3 flex flex-col items-center">
      
             
             

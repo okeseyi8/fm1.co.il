@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <section className='header w-full flex justify-center '>
-      <div  className='lg:w-8/12 w-10/12 justify-around flex items-center  h-[155px] bg-headbg object-contain bg-no-repeat bg-[#253547] '>
+      <div  className='lg:w-10/12 w-full justify-around flex items-center  h-[155px] bg-headbg object-contain bg-no-repeat bg-[#253547] '>
         <div className='w-4/12 pl-7'>
           <div id="fb-root"></div>
           {/* Facebook Like Button */}
@@ -44,8 +44,10 @@ const Header = () => {
                 
             </div>
             <div className='w-[60%] h-auto flex flex-col items-end'>
-                  <img src={logo}/>
-                <ul className='flex w-full pt-2 justify-evenly text-[#7fbcd1]  '>
+              <a href='https://alonshemesh-react.vercel.app/
+'> <img  src={logo}/></a>
+                  
+                <ul dir='rtl' className='flex w-full pt-2 justify-evenly text-[#7fbcd1]  '>
                       <li dir='rtl'><a href="/" class="nav-link">רדיו</a></li>
                       <li dir='rtl'><a href="/" className="nav-link" >צור קשר</a></li>
                       <li dir='rtl'><a href= "/" className="nav-link" >רדיו</a></li>
