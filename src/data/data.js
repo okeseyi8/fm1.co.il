@@ -7,63 +7,63 @@ const data = [
             {
                 "id": "a1",
                 "channelName": "רדיו קול חי",
-                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "link": "https://glzwizzlv.bynetcdn.com/glglz_mp3",
                 "image": "/images/stations/100fm.png",
                 "isLiked": true
             },
             {
                 "id": "a2",
                 "channelName": "רדיו קול ברמה",
-                "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_BET.mp3",
+                "link": "https://cdn.cybercdn.live/Galei_Israel/Live/icecast.audio",
                 "image": "/images/stations/70s.png",
                 "isLiked": true
             },
             {
                 "id": "a3",
                 "channelName": "ערוץ 7",
-                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "link": "https://kanliveicy.media.kan.org.il/icy/kan88_mp3",
                 "image": "/images/stations/80s.png",
                 "isLiked": false
             },
             {
                 "id": "a4",
                 "channelName": "כאן מורשת",
-                "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_88.mp3",
+                "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_BET.mp3",
                 "image": "/images/stations/91fm.png",
                 "isLiked": true
             },
             {
                 "id": "a5",
                 "channelName": "רדיו ברסלב",
-                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "link": "https://eco01.livecdn.biz/ecolive/99fm/icecast.audio",
                 "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "a6",
                 "channelName": "רדיו 2000",
-                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "link": "https://cdn88.mediacast.co.il/102fm-tlv/102fm_aac/icecast.audio",
                 "image": "/images/stations/103fm.png",
                 "isLiked": false
             },
             {
                 "id": "a7",
                 "channelName": "רדיו עידן תשובה",
-                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "link": "https://cdn.cybercdn.live/103FM/Live/icecast.audio",
                 "image": "/images/stations/100fm.png",
                 "isLiked": false
             },
             {
                 "id": "a8",
                 "channelName": "רדיו קבלה",
-                "link": "url",
+                "link": "https://cdn.cybercdn.live/103FM/Live/icecast.audio",
                 "image":"/images/stations/classicfm.png",
                 "isLiked": true
             },
             {
                 "id": "a9",
                 "channelName": "הרדיו של מנחם טוקר",
-                "link": "https://24063.live.streamtheworld.com/KAN_GIMMEL.mp3",
+                "link": "https://glzwizzlv.bynetcdn.com/glglz_mp3",
                 "image": "/images/stations/eco99fm.png",
                 "isLiked": false
             }
@@ -264,35 +264,35 @@ const data = [
             {
                 "id": "e1",
                 "channelName": "רדיו 101FM מוסיקה עולמית",
-                "link": "url",
-                "image": "imageUrl",
+                "link": "https://glzwizzlv.bynetcdn.com/glglz_mp3",
+                "image": "url",
                 "isLiked": false
             },
             {
                 "id": "e2",
                 "channelName": "רדיו נוגה י שירים לועזיים",
-                "link": "url",
+                "link": "https://cdn.cybercdn.live/Galei_Israel/Live/icecast.audio",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "e3",
                 "channelName": "רדיו להיטים מהעבר",
-                "link": "url",
+                "link": "https://kanliveicy.media.kan.org.il/icy/kan88_mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "e4",
                 "channelName": "רדיו רוק ישראלי",
-                "link": "url",
+                "link": "https://playerservices.streamtheworld.com/api/livestream-redirect/KAN_BET.mp3",
                 "image": "imageUrl",
                 "isLiked": false
             },
             {
                 "id": "e5",
                 "channelName": "רדיו ג'אז ומוסיקת נשמה",
-                "link": "url",
+                "link": "https://eco01.livecdn.biz/ecolive/99fm/icecast.audio",
                 "image": "imageUrl",
                 "isLiked": false
             }

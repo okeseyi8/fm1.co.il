@@ -23,8 +23,9 @@ const Station = () => {
   
     // Cleanup logic only when the component unmounts
     return () => {
-      if (isPlaying) {
-        setIsPlaying(false); // Reset the playing state
+      if (isPlaying.current) {
+        isPlaying.current = false;
+        // setIsPlaying(false); // Reset the playing state
         playerRef.current?.pause(); // Pause the player
       }
     };
@@ -56,13 +57,13 @@ const Station = () => {
                   </h1>
                   </div>
                   {/* <button onClick={handleMountChecks}> Mounted</button> */}
-              <div className="flex lg:flex-row lg:items-start lg:justify-center lg:gap-[120px] flex-col justify-center items-center pb-[60px] border-0 border-b ">
+              <div className="flex lg:flex-row lg:items-start lg:justify-center lg:gap-[120px] flex-col justify-center items-center pb-[20px] border-0 border-b ">
                 <div className="flex flex-col items-center justify-center text-[#3e466b] font-bold text-[14px]">
                   <Player />
                   {/* האתר פועל ברשיון 
                   <img src={Acum}/> */}
                 </div>
-                <div className="w-"> <img  className="w-[250px] h-[150px] lg:mr-[4px] border-4  border-[#f1f1f1] rounded-md" src={currentStation.image} /></div>
+                <div className="w-"> <img  className="w-[250px] h-[150px] lg:mr-[4px] border-1  border-[#f1f1f1] rounded-md" src={currentStation.image} /></div>
               </div>
               <div>
               <h1 className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
@@ -90,7 +91,7 @@ const Station = () => {
             
           </div>
         </div>
-        <div className="lg:w-[26%] pr-3 flex flex-col items-center">
+        <div className="lg:w-[28%] pr-3 flex flex-col items-center">
      
             
             

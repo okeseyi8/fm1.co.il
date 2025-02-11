@@ -1,4 +1,4 @@
-import { useState, createContext, useRef, useEffect } from "react";
+import { useState, createContext, useRef, useEffect, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import Home from "./components/Home";
 
@@ -7,6 +7,7 @@ import "./App.css";
 import data from "./data/data";
 import Sortable from "sortablejs";
 import Station from "./pages/Station";
+import { TbRuler2 } from "react-icons/tb";
 // import { Routes } from 'react-router-dom'
 
 export const GlobalData = createContext();
@@ -24,27 +25,52 @@ function App() {
   const [volume, setVolume] = useState(1)
   
   
-  const playerRef = useRef(new Audio())
+  const playerRef = useMemo(() => new Audio(), []); // Memoized Audio instance
+  const [isPlayingIcon, setIsPlayingIcon] = useState(false); // State for the icon
+  const isPlaying = useRef(false); // Ref for tracking play/pause status without re-renders
+ 
+  useEffect(() => {
+    if (currentStation && isPlaying.current) {
+      playerRef.src = currentStation.link;
+      playerRef.play();
+    }
+  }, [currentStation, playerRef]); // Only update when station changes
+  const handlePlay = async () => {
+    if (isPlayingIcon) {
+      playerRef.pause();
+      isPlaying.current = false;
+      setIsPlayingIcon(false);
+    } else {
+      if (playerRef.src !== currentStation.link) {
+        playerRef.src = currentStation.link;
+      }
   
-    const [isPlaying, setIsPlaying] = useState(false);
-    const handlePlay = () => {
-      if (!currentStation) return;
-        if(isPlaying){
-          playerRef.current?.pause();
-          setIsPlaying(false)
-        }else{
-          playerRef.current.src = currentStation.link;
-          playerRef.current?.play();
-          setIsPlaying(true)
-        }
+      try {
+        await playerRef.play();
+        isPlaying.current = true;
+        setIsPlayingIcon(true);
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+        isPlaying.current = false;
+        setIsPlayingIcon(false);
+      }
     }
-    const handleVolume = (e) => {
-      const  {value}  = e.target;
-      const volume = value / 20;
-      // setVolume(volume)
-      playerRef.current.volume = volume;
+  };
+  
 
-    }
+
+
+
+  const handleVolume = (e) => {
+    const { value } = e.target;
+    const volume = value / 20;
+    playerRef.volume = volume;
+  };
+  const handleMute = () => {
+    const volume = 0
+    setVolume(0)
+  } 
+
     const setStation = (id, channelInfo) => {
       console.log("Station ID:", id);
       console.log("Channel Info:", channelInfo);
@@ -130,8 +156,12 @@ function App() {
         setStation,
         volume,  
         isPlaying,
-        setIsPlaying,
-        playerRef
+        isPlayingIcon,
+        setIsPlayingIcon, 
+       
+        playerRef, 
+
+        handleMute
 
         
       }}

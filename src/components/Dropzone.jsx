@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, createContext, useContext } from "r
 
 import Sortable from "sortablejs";
 import { GlobalData } from '../App'
-
+import { FaXmark } from "react-icons/fa6";
 import "./css/Dropzone.css"
 
 
@@ -71,10 +71,10 @@ const Dropzone = () => {
         {likedChannels.length > 0 ? (
        <ul className="w-full flex flex-wrap justify-center gap-5" ref={sortableContainer}>
        {likedChannels.map((channel) => (
-         <li data-id={channel.channelName} className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] rounded-[10px]" key={channel.channelName}>
+         <li data-id={channel.channelName} className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] hover:bg-[#4CA1C4] rounded-[10px]" key={channel.channelName}>
            <img className="w-[60px] h-[60px]" src={channel.image} />
-           <button onClick={() => handleRemove(channel.channelName)} className="remove-button absolute -top-1 left-1 text-[#415a5c] text-[16px]">
-             x
+           <button onClick={() => handleRemove(channel.channelName)} className="remove-button absolute top-[1px] left-[1px] text-[#415a5c] text-[16px]">
+             <FaXmark />
            </button>
          </li>
        ))}

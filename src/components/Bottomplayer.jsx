@@ -12,8 +12,8 @@ import { FaVolumeHigh } from "react-icons/fa6";
 import { FaVolumeXmark } from "react-icons/fa6";
 import { FaVolumeLow } from "react-icons/fa6";
 function Bottomplayer() {
-    
-  const {channelData,  playerRef, isPlaying, handlePlay, currentStation, handleVolume, handleLike} = useContext(GlobalData)
+  const bottomPlayerSize = true;
+  const {channelData,  playerRef, isPlaying, handlePlay, currentStation, handleVolume,isPlayingIcon,volume, handleMute, handleLike} = useContext(GlobalData)
   const max = 1
   const min = 0
   const {id} = useParams();
@@ -42,7 +42,7 @@ function Bottomplayer() {
           <div className=' lg:w-[25%] w-[40%]  flex items-center justify-between '>
                 <div className=" flex items-center " >
                 
-                <Playbutton size={"40px"} handlePlay={handlePlay} isPlaying={isPlaying} playerRef={playerRef} channelData={channelData} id={id} />
+                <Playbutton size={"40px"} handlePlay={handlePlay} isPlaying={isPlaying} playerRef={playerRef} isPlayingIcon={isPlayingIcon} channelData={channelData} id={id} bottomPlayerSize={bottomPlayerSize} />
                   
               </div>
               <div className='flex justify-center gap-[6px] items-center'> 
@@ -50,14 +50,19 @@ function Bottomplayer() {
                      
                  
 
-                </button>       
+                </button>   
+                <button onClick={handleMute} className='text-[#1C5BD0]'>
+                  {
+                    volume === 0 ? <FaVolumeLow /> : <FaVolumeHigh  />
+                  }
+                </button>    
                              
                  <input className='outline-0 cursor-pointer rounded-[20%] h-[3px]' type="range" id="seekBar"  step="1" onChange={(e) => handleVolume(e)} min={0} max={20}/>
               </div>
           </div>
           <div className='w-[55%] flex items-center justify-between'>
             <div className=' w-[40%] flex justify-center items-center mt-2'>
-                  <div id="fb-root"></div>
+                  {/* <div id="fb-root"></div>
                 
                 <div className="fb-like"
                   data-href="http://fm1.co.il"
@@ -66,7 +71,7 @@ function Bottomplayer() {
                   data-show-faces="false"
                   data-action="like"
                   data-font="">
-                </div>
+                </div> */}
             </div>
             <div className='w-[20%]'>
                 <BottomLike />
