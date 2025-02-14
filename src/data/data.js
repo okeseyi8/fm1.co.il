@@ -39,7 +39,7 @@ const data = [
                 "secondImage": "imageUrl/ imagePath",
                 "isLiked": true,
                 "engName": "Flametv",
-                "stationNote": "Notes for each channel goes he"           
+                "stationNote": 'Description for channel a'          
             },
             {
                 "id": "a2",
@@ -49,7 +49,7 @@ const data = [
                 "isLiked": true,
                 "secondImage": "imageUrl/ imagePath",
                 "engName": "TheFireFm",
-                "stationNote": "Notes for each channel goes  he"            },
+                "stationNote": "Description for channel b"            },
             {
                 "id": "a3",
                 "channelName": "ערוץ 7",
@@ -58,7 +58,7 @@ const data = [
                 "secondImage": "imageUrl/ imagePath",
                 "isLiked": false,
                 "engName": "vision",
-                "stationNote": "Notes for each channel goes  he"
+                "stationNote": "Description for channel c"
             },
             {
                 "id": "a4",
@@ -68,7 +68,7 @@ const data = [
                 "secondImage": "imageUrl/ imagePath",
                 "isLiked": true,
                 "engName": "placefm",
-                "stationNote": "Notes for each channel goes  he"            },
+                "stationNote": "Description for channel d"            },
             {
                 "id": "a5",
                 "channelName": "רדיו ברסלב",
@@ -77,7 +77,7 @@ const data = [
                 "secondImage": "imageUrl/ imagePath",
                 "isLiked": false,
                 "engName": "sweetfm",
-                "stationNote": "Notes for each channel goes  he"
+                "stationNote": "Description for channel e"
             },
             {
                 "id": "a6",
@@ -87,7 +87,7 @@ const data = [
                 "secondImage": "imageUrl/ imagePath",
                 "isLiked": false,
                 "engName": "2000s-fm",
-                "stationNote": "Notes for each channel goes  he"
+                "stationNote": "Description for channel f"
             },
             {
                 "id": "a7",
@@ -97,7 +97,7 @@ const data = [
                 "secondImage": "imageUrl/ imagePath",
                 "isLiked": false,
                 "engName": "wake-up-fm",
-                "stationNote": "Notes for each channel goes  he"
+                "stationNote": "Anoter descritpion"
             },
             {
                 "id": "a8",
