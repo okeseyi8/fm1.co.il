@@ -15,7 +15,7 @@ function Player() {
   return (
   <div className='w-full'>
         
-       <div className='w-[250px] h-[150px] border-[1px] border-[#000] flex justify-center items-center rounded-md bg-[#E1C4C4]'>
+       <div className='w-[250px] h-[150px] border-[1px] border-[#000] flex justify-center items-center rounded-[10px] bg-[#E1C4C4]'>
             <Playbutton handlePlay={handlePlay} isPlaying={isPlaying} playerRef={playerRef} channelData={channelData} id={id} isPlayingIcon={isPlayingIcon} />
 
        </div>

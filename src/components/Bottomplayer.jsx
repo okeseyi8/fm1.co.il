@@ -1,6 +1,6 @@
 import React from 'react'
 // import Playbutton from './Playbutton'
-import { useContext, useRef, useEffect } from 'react';
+import { useState , useContext, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Playbutton from './Playbutton';
 import { GlobalData } from '../App';
@@ -13,7 +13,8 @@ import { FaVolumeXmark } from "react-icons/fa6";
 import { FaVolumeLow } from "react-icons/fa6";
 function Bottomplayer() {
   const bottomPlayerSize = true;
-  const {channelData,  playerRef, isPlaying, handlePlay, currentStation, handleVolume,isPlayingIcon,volume, handleMute, handleLike} = useContext(GlobalData)
+  
+  const {channelData,  playerRef, isPlaying, handlePlay, currentStation, handleVolume,isPlayingIcon,volume, handlesMute,mute,  handleLike} = useContext(GlobalData)
   const max = 1
   const min = 0
   const {id} = useParams();
@@ -35,6 +36,7 @@ function Bottomplayer() {
       }
     };
   }, []); 
+  
   return (
     <div className='w-full flex justify-center items-center fixed bottom-0 h-[80px] bg-black z-50'>
         {/* <h1><Playbutton /> </h1> */}
@@ -51,13 +53,13 @@ function Bottomplayer() {
                  
 
                 </button>   
-                <button onClick={handleMute} className='text-[#1C5BD0]'>
+                <button onClick={handlesMute} className='text-[#1C5BD0]'>
                   {
-                    volume === 0 ? <FaVolumeLow /> : <FaVolumeHigh  />
+                    playerRef.volume  === 0 && mute ? <FaVolumeLow /> : <FaVolumeHigh  />
                   }
                 </button>    
                              
-                 <input className='outline-0 cursor-pointer rounded-[20%] h-[3px]' type="range" id="seekBar"  step="1" onChange={(e) => handleVolume(e)} min={0} max={20}/>
+                 <input className='outline-0 cursor-pointer rounded-[20%] h-[3px]' type="range" id="seekBar"  step="1" value={volume} onChange={(e) => handleVolume(e)} min={0} max={20}/>
               </div>
           </div>
           <div className='w-[55%] flex items-center justify-between'>
@@ -77,12 +79,13 @@ function Bottomplayer() {
                 <BottomLike />
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
-              <div  dir="rtl" className='flex flex-col items-end font-normal text-[12px] text-[#009fce]'>
+              <div  dir="rtl" className='flex flex-col  font-normal text-[12px] text-[#009fce]'>
                <button>
                  {currentStation.channelName}
+                
                </button>
                 
-                <p> מנגן עכשיו</p>
+                <p> מנגן עכשיו </p>
               </div>
               <button  className='cursor-pointer' onClick={() => navigate(`${stationUrl}${currentStation.channelName}`)}>
                 

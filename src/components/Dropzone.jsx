@@ -73,7 +73,7 @@ const Dropzone = () => {
        {likedChannels.map((channel) => (
          <li data-id={channel.channelName} className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] hover:bg-[#4CA1C4] rounded-[10px]" key={channel.channelName}>
            <img className="w-[60px] h-[60px]" src={channel.image} />
-           <button onClick={() => handleRemove(channel.channelName)} className="remove-button absolute top-[1px] left-[1px] text-[#415a5c] text-[16px]">
+           <button onClick={() => handleRemove(channel.channelName)} className="remove-button absolute top-[1px] left-[1px] text-[#ff0000] text-[18px]">
              <FaXmark />
            </button>
          </li>

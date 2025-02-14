@@ -21,8 +21,9 @@ function App() {
       return data;
     }
   });
+  const [mute, setMute] = useState(false)
   const [currentStation, setCurrentStation] = useState({})
-  const [volume, setVolume] = useState(1)
+  const [volume, setVolume] = useState(20)
   
   
   const playerRef = useMemo(() => new Audio(), []); // Memoized Audio instance
@@ -62,14 +63,31 @@ function App() {
 
 
   const handleVolume = (e) => {
-    const { value } = e.target;
-    const volume = value / 20;
-    playerRef.volume = volume;
+    const value = parseInt(e.target.value, 10);
+    const newVolume = value / 20;
+    playerRef.volume = newVolume;
+    setVolume(value)
+    setMute(value === 0);
+  
+  
   };
-  const handleMute = () => {
-    const volume = 0
-    setVolume(0)
-  } 
+
+  const handlesMute = () => {
+    
+    
+    if (mute) {
+      
+      setMute(false);
+      setVolume(20);
+      playerRef.volume = 1;
+    } else {
+     
+      setMute(true);
+      setVolume(0);
+      playerRef.volume = 0;
+    }
+    
+  }
 
     const setStation = (id, channelInfo) => {
       console.log("Station ID:", id);
@@ -77,7 +95,7 @@ function App() {
     
       const station = channelInfo
         ?.flatMap(channel => channel.channels)
-        ?.find(station => station.channelName === id);
+        ?.find(station => station.engName === id);
     
       if (station) {
         console.log("Found Station:", station);
@@ -161,7 +179,9 @@ function App() {
        
         playerRef, 
 
-        handleMute
+        handlesMute,
+        mute,
+        volume
 
         
       }}

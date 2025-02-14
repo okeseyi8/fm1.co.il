@@ -5,7 +5,7 @@ import {useContext} from 'react';
 import logo from '../images/fmlogo.jpg'; // Adjust the path based on your file structure
 import { GlobalData } from '../App';
 
-const Channel = ({ channel, handleLike, id }) => {
+const Channel = ({ channel,link, handleLike, id }) => {
   const {handlePlay} = useContext(GlobalData)
   const navigate = useNavigate()
   const stationUrl = "/station/"

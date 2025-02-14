@@ -27,7 +27,7 @@ function Channels() {
         const isCollapsed = collapseStates[category.id];
         return (
           <div dir="rtl" className="w-[100%]" key={category.id}>
-            <h2   onClick={() => toggleCollapse(category.id)} className="border-0 border-b border-b-[#7a7a7a] text-[#587493] font-bold text-[16px] flex justify-between items-center">
+            <h2   onClick={() => toggleCollapse(category.id)} className="border-0 border-b border-b-[#7a7a7a] text-[#587493] font-bold text-[16px] flex justify-between items-center cursor-pointer">
               {category.channelCategoryName}
               {location.pathname.startsWith(pathtoShowCollapse) && (
                 <button
@@ -59,8 +59,9 @@ function Channels() {
                 >
                   <Channel
                     channel={channel}
-                    id={channel.channelName}
+                    id={channel.engName}
                     handleLike={handleLike}
+                    link= {channel.link}
                   />
                 </li>
               ))}

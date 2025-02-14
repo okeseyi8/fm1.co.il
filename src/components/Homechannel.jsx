@@ -12,10 +12,20 @@ import Footer from "./Footer";
 
 const Homechannel = () => {
   const stationUrl = "/station/"
-  const {channelData, setChannelData, likedChannels, setLikedChannels, handleLike, handleRemove, likedChannelsRef, sortableContainer} = useContext(GlobalData)
+
+ 
+  
+  const {channelData, setChannelData, likedChannels, setStation,  setLikedChannels, handleLike, handleRemove, likedChannelsRef, sortableContainer, playerRef} = useContext(GlobalData)
+  useEffect(() => {
+    console.log(channelData)
+    console.log(playerRef.current, playerRef.src, "HI logs ")
+    playerRef.src = ""
+  })
+
+  
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full lg:w-10/12 bg-white">
+      <div className="lg:max-w-[1200px] w-full bg-white">
         <div className="w-full flex flex-col items-center">
          
           <Dropzone />
@@ -30,7 +40,7 @@ const Homechannel = () => {
                 </h2>
                 {category.channels.map((channel) => (
                   <li className="list-none text-[12px] rtl:mr-2 leading-[25px]" key={channel.id}>
-                    <Channel channel={channel} id={channel.channelName} handleLike={handleLike} />
+                    <Channel channel={channel} id={channel.engName} handleLike={handleLike} />
                   </li>
                 ))}
               </div>

@@ -1,6 +1,6 @@
-import React, { useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import Header from "../components/Header";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { GlobalData } from "../App";
 import Dropzone from "../components/Dropzone";
 import Channels from "../components/Channels";
@@ -12,11 +12,15 @@ import dummy from "../images/glgltz.png"
 import Footer from "../components/Footer";
 import Bottomplayer from "../components/Bottomplayer";
 const Station = () => {
-  
+  const Location = useLocation()
 
   const {id}  = useParams()
   const {channelData, setStation, currentStation, setIsPlaying, playerRef, handlePlay, isPlaying} = useContext(GlobalData)
   useEffect(() => {
+    // console.log(playerRef)
+    console.log(playerRef.current, playerRef.src, "HI logs on the Station page ")
+    // playerRef.src = " ";
+    // setIsPlaying(false)
     if (channelData.length > 0) {
       setStation(id, channelData);
     }
@@ -30,24 +34,28 @@ const Station = () => {
       }
     };
   }, [id, channelData, setStation, setIsPlaying, playerRef]);
+  
+
+ 
   const handleMountChecks = () => {
     console.log(currentStation)
+    console.log(id, "ENGLISH NAME")
   }
   return (
-    <div className=" hidden sm:block body ">
+    <div  className=" hidden sm:block body ">
       <Header />
       <div className="w-full flex justify-center ">
-      <div className="w-full flex h-auto overflow-auto lg:w-10/12  bg-white pb-10">
+      <div className=" flex h-auto overflow-auto lg:max-w-[1200px] w-full bg-white pb-10">
         <div className="w-full flex flex-col items-center">
           
           <Dropzone />
           <AdSpaceOne  />
 
           <div className="w-full flex  ">
-            <div className="w-[30%] pr-1 pl-3">
+            <div className="w-[30%] flex justify-center  pr-1 pl-3">
               <AdSpaceTwo />
             </div>
-            <div className=" w-[82%] ">
+            <div className=" w-full ">
                     <div className="">    <h1 className=" w-full text-end mb-5 border-0 border-b pr-3 ">
                     
                      <div dir="rtl" className="flex justify-start text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold"> מנגן עכשיו:</h1>  {
@@ -57,13 +65,14 @@ const Station = () => {
                   </h1>
                   </div>
                   {/* <button onClick={handleMountChecks}> Mounted</button> */}
-              <div className="flex lg:flex-row lg:items-start lg:justify-center lg:gap-[120px] flex-col justify-center items-center pb-[20px] border-0 border-b ">
-                <div className="flex flex-col items-center justify-center text-[#3e466b] font-bold text-[14px]">
+              <div className="flex lg:flex-row   lg:gap-[120px] flex-col justify-center items-center pb-[20px] border-0 border-b ">
+                <div className="lg:w-full  flex flex-col lg:pl-[80px] items-start justify-center text-[#3e466b] font-bold text-[14px]">
                   <Player />
-                  {/* האתר פועל ברשיון 
-                  <img src={Acum}/> */}
+                
                 </div>
-                <div className="w-"> <img  className="w-[250px] h-[150px] lg:mr-[4px] border-1  border-[#f1f1f1] rounded-md" src={currentStation.image} /></div>
+                <div className="lg:w-full flex justify-end lg:mr-4"> 
+                  <img  className="w-[250px] h-[150px]  border-1  border-[#f1f1f1] rounded-[10px]" src={currentStation.image} />
+                </div>
               </div>
               <div>
               <h1 className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
@@ -72,7 +81,7 @@ const Station = () => {
                       currentStation.channelName
                     } </div>
               </h1>
-              <p dir="rtl" className="text-[12px] font-light text-[#6b6b6b] mr-3">
+              <p dir="rtl" className="text-[14px] font-normal text-[#6b6b6b] mr-3">
               גלגלצ היא תחנת הרדיו הפופולרית ביותר בישראל ומובילת דעה בכל מה שקשור למוזיקה עכשווית, לועזית וישראלית. רדיו גלגלצ הוא המקום לכל מי שרוצה להיות בעניינים, להתעדכן בלהיטים הכי חמים ולשמוע מוזיקה טובה ומגוונת 24 שעות ביממה. מפופ ומיינסטרים, דרך אלטרנטיבי ורוק ועד מוזיקה ים-תיכונית, בגלגלצ תמצאו הכל.
 
 בתחנת רדיו גלגלצ תוכניות מקור כמו "הבחירות" עם עמרי רונן, "אוטונומי" עם נעמי רביע, "סינגלס" עם הדר מרקס ו"קולות החיילים" – שירים שנבחרים על ידי חיילי צה"ל. בכל שנה מקיימת גלגלצ את המצעד השנתי העברי והלועזי.

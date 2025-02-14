@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <section className='header w-full flex justify-center '>
-      <div  className='lg:w-10/12 w-full justify-around flex items-center  h-[155px] bg-headbg object-contain bg-no-repeat bg-[#253547] '>
+      <div  className='lg:max-w-[1200px] w-full justify-around flex items-center  h-[155px] bg-headbg object-contain bg-no-repeat bg-[#253547] '>
         <div className='w-4/12 pl-7'>
         {/* Facebook Like Button */}
           {/* <div id="fb-root"></div>
@@ -48,7 +48,7 @@ const Header = () => {
                 
             </div>
             <div className='w-[60%] h-auto flex flex-col items-end'>
-              <a onClick={() => navigate("/")}> <img  src={logo}/></a>
+              <a className='cursor-pointer' onClick={() => navigate("/")}> <img  src={logo}/></a>
                   
                 <ul dir='rtl' className='flex w-full pt-2 justify-evenly text-[#7fbcd1]  '>
                       <li dir='rtl'><a href="/" class="nav-link">רדיו</a></li>

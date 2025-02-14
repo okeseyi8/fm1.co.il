@@ -7,7 +7,7 @@ const BottomLike = () => {
     const {currentStation, handleLike} = useContext(GlobalData)
   return (
     <button className='' onClick={() => handleLike(currentStation.channelName)}>
-    {currentStation.isLiked ? <FaHeart className='text-[1.5rem] text-[#EF4444]' /> : <FaRegHeart className='text-[1.5rem] text-[#EF4444]' />}
+    {currentStation.isLiked ? <FaHeart className='text-[2.5rem] text-[#EF4444]' /> : <FaRegHeart className='text-[2.5rem] text-[#EF4444]' />}
 
   </button>
 
