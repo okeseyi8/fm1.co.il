@@ -80,12 +80,12 @@ function Bottomplayer() {
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
               <div  dir="rtl" className='flex flex-col  font-normal text-[12px] text-[#009fce]'>
-               <button>
-                 {currentStation.channelName}
+               <h1>
+                 {currentStation.channelName} <br />
+                 מנגן עכשיו
+               </h1>
                 
-               </button>
                 
-                <p> מנגן עכשיו </p>
               </div>
               <button  className='cursor-pointer' onClick={() => navigate(`${stationUrl}${currentStation.channelName}`)}>
                 

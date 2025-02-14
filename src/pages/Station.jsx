@@ -52,7 +52,7 @@ const Station = () => {
           <AdSpaceOne  />
 
           <div className="w-full flex  ">
-            <div className="w-[30%] flex justify-center  pr-1 pl-3">
+            <div className="w-[30%] flex justify-center  pr-1 pl-1">
               <AdSpaceTwo />
             </div>
             <div className=" w-full ">
@@ -75,12 +75,16 @@ const Station = () => {
                 </div>
               </div>
               <div>
-              <h1 className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
-              <div dir="rtl" className="flex justify-start text-[19px] items-center font-semibold text-[#47add8] gap-2"> <h1 className="text-[#47add8] text-[21px] font-bold">  אודות :
-</h1>  {
+              <div className=" w-full text-end mb-5 pt-3 pr-3  font-semibold text-[#47add8]">
+              <div dir="rtl" className="flex justify-start text-[19px] items-center font-semibold text-[#47add8] gap-2"> 
+                <h1 className="text-[#47add8] text-[21px] font-bold"> 
+                 אודות :
+                    {
                       currentStation.channelName
-                    } </div>
-              </h1>
+                    } 
+                </h1> 
+              </div>
+              </div>
               <p dir="rtl" className="text-[14px] font-normal text-[#6b6b6b] mr-3">
                 {
                   currentStation.stationNote
