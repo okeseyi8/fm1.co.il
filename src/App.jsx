@@ -172,7 +172,7 @@ function App() {
         handlePlay,
         handleVolume,
         setStation,
-        volume,  
+        
         isPlaying,
         isPlayingIcon,
         setIsPlayingIcon, 
@@ -202,7 +202,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/station/:id" element={<Station />} />
+          <Route path="/:id" element={<Station />} />
         </Routes>
       </Router>
     </GlobalData.Provider>

@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, useState } from "react";
 import { GlobalData } from "../App";
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import Channel from "./Channel";
 
@@ -31,13 +33,13 @@ function Channels() {
               {category.channelCategoryName}
               {location.pathname.startsWith(pathtoShowCollapse) && (
                 <button
-                  className=""
+                  className="text-black"
                   onClick={() => toggleCollapse(category.id)}
                 >
                   {!isCollapsed ? (
-                    <MdKeyboardArrowDown />
+                     <IoIosArrowDown />
                   ) : (
-                    <MdKeyboardArrowRight />
+                    <IoIosArrowForward />
                   )}
                 </button>
               )}

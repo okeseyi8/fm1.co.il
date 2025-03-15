@@ -19,7 +19,7 @@ function Bottomplayer() {
   const min = 0
   const {id} = useParams();
   const navigate = useNavigate();
-  const stationUrl = "/station/"
+  const stationUrl = ""
   useEffect(() => {
     // Dynamically load the Facebook SDK script
 
@@ -55,7 +55,7 @@ function Bottomplayer() {
                 </button>   
                 <button onClick={handlesMute} className='text-[#1C5BD0]'>
                   {
-                    playerRef.volume  === 0 && mute ? <FaVolumeLow /> : <FaVolumeHigh  />
+                    playerRef.volume  === 0 && mute ? <FaVolumeXmark /> : <FaVolumeHigh  />
                   }
                 </button>    
                              
@@ -64,26 +64,17 @@ function Bottomplayer() {
           </div>
           <div className='w-[55%] flex items-center justify-between'>
             <div className=' w-[40%] flex justify-center items-center mt-2'>
-                  {/* <div id="fb-root"></div>
-                
-                <div className="fb-like"
-                  data-href="http://fm1.co.il"
-                  data-send="false"
-                  data-layout="box_count"
-                  data-show-faces="false"
-                  data-action="like"
-                  data-font="">
-                </div> */}
+              
             </div>
             <div className='w-[20%]'>
                 <BottomLike />
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
               <div  dir="rtl" className='flex flex-col  font-normal text-[12px] text-[#009fce]'>
-               <h1>
+               <p>
                  {currentStation.channelName} <br />
                  מנגן עכשיו
-               </h1>
+               </p>
                 
                 
               </div>

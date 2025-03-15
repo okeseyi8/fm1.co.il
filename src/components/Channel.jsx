@@ -8,7 +8,7 @@ import { GlobalData } from '../App';
 const Channel = ({ channel,link, handleLike, id }) => {
   const {handlePlay} = useContext(GlobalData)
   const navigate = useNavigate()
-  const stationUrl = "/station/"
+  const stationUrl = "/"
   const handleStationPlay = ()  => {
     handlePlay()
     navigate(`${stationUrl}${id}`)
