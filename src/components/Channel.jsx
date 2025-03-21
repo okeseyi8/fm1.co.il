@@ -1,16 +1,17 @@
 import React from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {useContext} from 'react';
 import logo from '../images/fmlogo.jpg'; // Adjust the path based on your file structure
 import { GlobalData } from '../App';
 
 const Channel = ({ channel,link, handleLike, id }) => {
-  const {handlePlay} = useContext(GlobalData)
+  const {handlePlay, currentStation} = useContext(GlobalData)
+  const Location = useLocation()
   const navigate = useNavigate()
   const stationUrl = "/"
   const handleStationPlay = ()  => {
-    handlePlay()
+    console.log("ON STation clicked:", currentStation)
     navigate(`${stationUrl}${id}`)
   }
   return (

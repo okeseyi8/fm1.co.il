@@ -8,6 +8,7 @@ import data from "./data/data";
 import Sortable from "sortablejs";
 import Station from "./pages/Station";
 import { TbRuler2 } from "react-icons/tb";
+import { Toaster } from 'react-hot-toast';
 // import { Routes } from 'react-router-dom'
 
 export const GlobalData = createContext();
@@ -24,18 +25,18 @@ function App() {
   const [mute, setMute] = useState(false)
   const [currentStation, setCurrentStation] = useState({})
   const [volume, setVolume] = useState(20)
-  
+  const [previousVolume, setPreviousVolume] = useState()
   
   const playerRef = useMemo(() => new Audio(), []); // Memoized Audio instance
   const [isPlayingIcon, setIsPlayingIcon] = useState(false); // State for the icon
   const isPlaying = useRef(false); // Ref for tracking play/pause status without re-renders
  
-  useEffect(() => {
-    if (currentStation && isPlaying.current) {
-      playerRef.src = currentStation.link;
-      playerRef.play();
-    }
-  }, [currentStation, playerRef]); // Only update when station changes
+  // useEffect(() => {
+  //   if (currentStation && isPlaying.current) {
+  //     playerRef.src = currentStation.link;
+  //     playerRef.play();
+  //   }
+  // }, [currentStation, playerRef]); // Only update when station changes
   const handlePlay = async () => {
     if (isPlayingIcon) {
       playerRef.pause();
@@ -71,27 +72,23 @@ function App() {
   
   
   };
-
   const handlesMute = () => {
-    
-    
     if (mute) {
-      
+      // Unmute and restore the previous volume
       setMute(false);
-      setVolume(20);
-      playerRef.volume = 1;
+      setVolume(previousVolume); 
+      playerRef.volume = previousVolume / 20;
     } else {
-     
+      // Store the current volume before muting
+      setPreviousVolume(volume);
       setMute(true);
       setVolume(0);
       playerRef.volume = 0;
     }
-    
-  }
+  };
 
     const setStation = (id, channelInfo) => {
-      console.log("Station ID:", id);
-      console.log("Channel Info:", channelInfo);
+     
     
       const station = channelInfo
         ?.flatMap(channel => channel.channels)
@@ -188,6 +185,7 @@ function App() {
     >
       <Router>
         <div className="App">
+        <Toaster />
           <div className="flex justify-center">
             <div className=" w-9/12 h-screen sm:hidden flex flex-col justify-center items-center text-[24px] ">
               {/* {" "} */}

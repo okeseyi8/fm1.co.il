@@ -11,16 +11,19 @@ import Acum from '../images/acum.png'
 import dummy from "../images/glgltz.png"
 import Footer from "../components/Footer";
 import Bottomplayer from "../components/Bottomplayer";
+import {toast} from "react-hot-toast";
 const Station = () => {
   const Location = useLocation()
 
   const {id}  = useParams()
-  const {channelData, setStation, currentStation, setIsPlaying, playerRef, handlePlay, isPlaying} = useContext(GlobalData)
+  const {channelData, setStation, currentStation, setIsPlaying, playerRef, handlePlay, isPlaying, setIsPlayingIcon} = useContext(GlobalData)
+ 
+ 
+  
   useEffect(() => {
-    // console.log(playerRef)
-    console.log(playerRef.current, playerRef.src, "HI logs on the Station page ")
-    // playerRef.src = " ";
-    // setIsPlaying(false)
+  
+   
+    
     if (channelData.length > 0) {
       setStation(id, channelData);
     }
@@ -29,12 +32,30 @@ const Station = () => {
     return () => {
       if (isPlaying.current) {
         isPlaying.current = false;
-        // setIsPlaying(false); // Reset the playing state
+    
         playerRef.current?.pause(); // Pause the player
       }
     };
   }, [id, channelData, setStation, setIsPlaying, playerRef]);
   
+  useEffect(() => {
+    if (currentStation && currentStation.link) {
+      // Set the source when a new station is selected
+      playerRef.src = currentStation.link;
+      // Try autoplaying after updating the source
+      playerRef.play()
+        .then(() => {
+          // Playback started successfully
+          isPlaying.current = true;
+          setIsPlayingIcon(true);
+        })
+        .catch((error) => {
+          // Autoplay might be blocked, so handle the error or show a play button
+          // toast.error("Autoplay failed:", error);
+          console.error("Autoplay failed:", error);
+        });
+    }
+  }, [currentStation]);
 
  
   const handleMountChecks = () => {
