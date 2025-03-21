@@ -2,7 +2,7 @@ import React from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {useContext} from 'react';
-import logo from '../images/fmlogo.jpg'; // Adjust the path based on your file structure
+import logo from '/images/fmlogo.jpg'; // Adjust the path based on your file structure
 import { GlobalData } from '../App';
 
 const Channel = ({ channel,link, handleLike, id }) => {

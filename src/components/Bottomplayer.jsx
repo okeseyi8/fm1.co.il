@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import Playbutton from './Playbutton';
 import { GlobalData } from '../App';
 import { useNavigate } from 'react-router-dom';
-import logo from '../images/fmlogo.jpg'
+import logo from '/images/fmlogo.jpg'
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import BottomLike from './BottomLike';
 import { FaVolumeHigh } from "react-icons/fa6";
@@ -47,7 +47,7 @@ function Bottomplayer() {
                 <Playbutton size={"40px"} handlePlay={handlePlay} isPlaying={isPlaying} playerRef={playerRef} isPlayingIcon={isPlayingIcon} channelData={channelData} id={id} bottomPlayerSize={bottomPlayerSize} />
                   
               </div>
-              <div className='flex justify-center gap-[6px] items-center'> 
+              <div className='hidden sm:flex justify-center gap-[6px] items-center'> 
                 <button className='text-[#1C5BD0] text-[19px]'> 
                      
                  
@@ -63,7 +63,7 @@ function Bottomplayer() {
               </div>
           </div>
           <div className='w-[55%] flex items-center justify-between'>
-            <div className=' w-[40%] flex justify-center items-center mt-2'>
+            <div className='hidden  w-[40%] sm:flex justify-center items-center mt-2'>
               
             </div>
             <div className='w-[20%]'>

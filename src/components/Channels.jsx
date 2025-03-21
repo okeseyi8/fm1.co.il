@@ -5,11 +5,12 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import Channel from "./Channel";
-
+import { IoIosArrowBack } from "react-icons/io";
+// import { IoIosArrowDown } from "react-icons/io";
 function Channels() {
   const location = useLocation();
   const [collapseStates, setCollapseStates] = useState({});
-  const pathtoShowCollapse = "/station/";
+  const pathtoShowCollapse = "";
   const { channelData, handleLike } = useContext(GlobalData);
 
   const toggleCollapse = (categoryId) => {
@@ -24,23 +25,32 @@ function Channels() {
   }, [location.pathname]);
 
   return (
-    <div className="w-full flex flex-col items-center border-0 border-l pl-2 pt-4">
+    <div className="w-full flex flex-col items-center border-0 border-l sm:pl-2 pl-0  pt-0 sm:pt-4">
       {channelData.map((category) => {
         const isCollapsed = collapseStates[category.id];
         return (
-          <div dir="rtl" className="w-[100%]" key={category.id}>
-            <h2   onClick={() => toggleCollapse(category.id)} className="border-0 border-b border-b-[#7a7a7a] text-[#587493] font-bold text-[16px] flex justify-between items-center cursor-pointer">
-              {category.channelCategoryName}
+          <div dir="rtl" className="w-[100%] bg-[white]" key={category.id}>
+            <h2
+              onClick={() => toggleCollapse(category.id)}
+              className="border-0 border-b sm:h-auto h-20 border-b-[#7a7a7a] text-[#587493] font-bold text-[16px] flex justify-between items-center cursor-pointer"
+            >
+              <div className="flex flex-row-reverse items-center gap-2">
+                <h1  className="text-[25px] sm:text-[18px] font-normal sm:font-medium">{category.channelCategoryName}</h1>
+                <span  onClick={() => toggleCollapse(category.id)} className="sm:hidden text-[25px] mr-4"> 
+                {location.pathname.startsWith(pathtoShowCollapse) && (
+             
+                  !isCollapsed ? <IoIosArrowDown/> : <IoIosArrowBack /> 
+            
+              )}
+                </span>
+                
+              </div>
               {location.pathname.startsWith(pathtoShowCollapse) && (
                 <button
-                  className="text-black"
+                  className="text-[#587493] hidden sm:block"
                   onClick={() => toggleCollapse(category.id)}
                 >
-                  {!isCollapsed ? (
-                     <IoIosArrowDown />
-                  ) : (
-                    <IoIosArrowForward />
-                  )}
+                  {!isCollapsed ? <IoIosArrowDown /> : <IoIosArrowForward />}
                 </button>
               )}
             </h2>
@@ -63,7 +73,7 @@ function Channels() {
                     channel={channel}
                     id={channel.engName}
                     handleLike={handleLike}
-                    link= {channel.link}
+                    link={channel.link}
                   />
                 </li>
               ))}

@@ -2,7 +2,7 @@ import React from 'react'
 import "../index.css"
 // import { header } from "../images/headerbg.jpg"
 import { useEffect } from 'react';
-import logo from '../images/fmlogo.jpg'
+import logo from '/images/fmlogo.jpg'
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {

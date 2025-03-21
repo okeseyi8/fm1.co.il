@@ -1,5 +1,10 @@
 import { useState, createContext, useRef, useEffect, useMemo } from "react";
-import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
 import Home from "./components/Home";
 
 import "./App.css";
@@ -8,7 +13,10 @@ import data from "./data/data";
 import Sortable from "sortablejs";
 import Station from "./pages/Station";
 import { TbRuler2 } from "react-icons/tb";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
+import MobileLayout from "./Layout/MobileLayout";
+import MobileHeader from "./components/MobileHeader";
+import MobileChannels from "./components/MobileChannels";
 // import { Routes } from 'react-router-dom'
 
 export const GlobalData = createContext();
@@ -22,15 +30,15 @@ function App() {
       return data;
     }
   });
-  const [mute, setMute] = useState(false)
-  const [currentStation, setCurrentStation] = useState({})
-  const [volume, setVolume] = useState(20)
-  const [previousVolume, setPreviousVolume] = useState()
-  
+  const [mute, setMute] = useState(false);
+  const [currentStation, setCurrentStation] = useState({});
+  const [volume, setVolume] = useState(20);
+  const [previousVolume, setPreviousVolume] = useState();
+
   const playerRef = useMemo(() => new Audio(), []); // Memoized Audio instance
   const [isPlayingIcon, setIsPlayingIcon] = useState(false); // State for the icon
   const isPlaying = useRef(false); // Ref for tracking play/pause status without re-renders
- 
+  const { id } = useParams();
   // useEffect(() => {
   //   if (currentStation && isPlaying.current) {
   //     playerRef.src = currentStation.link;
@@ -46,7 +54,7 @@ function App() {
       if (playerRef.src !== currentStation.link) {
         playerRef.src = currentStation.link;
       }
-  
+
       try {
         await playerRef.play();
         isPlaying.current = true;
@@ -58,25 +66,19 @@ function App() {
       }
     }
   };
-  
-
-
-
 
   const handleVolume = (e) => {
     const value = parseInt(e.target.value, 10);
     const newVolume = value / 20;
     playerRef.volume = newVolume;
-    setVolume(value)
+    setVolume(value);
     setMute(value === 0);
-  
-  
   };
   const handlesMute = () => {
     if (mute) {
       // Unmute and restore the previous volume
       setMute(false);
-      setVolume(previousVolume); 
+      setVolume(previousVolume);
       playerRef.volume = previousVolume / 20;
     } else {
       // Store the current volume before muting
@@ -87,21 +89,19 @@ function App() {
     }
   };
 
-    const setStation = (id, channelInfo) => {
-     
-    
-      const station = channelInfo
-        ?.flatMap(channel => channel.channels)
-        ?.find(station => station.engName === id);
-    
-      if (station) {
-        console.log("Found Station:", station);
-        setCurrentStation(station);
-      } else {
-        console.log("No station found with the given ID.");
-        setCurrentStation(null);
-      }
-    };
+  const setStation = (id, channelInfo) => {
+    const station = channelInfo
+      ?.flatMap((channel) => channel.channels)
+      ?.find((station) => station.engName === id);
+
+    if (station) {
+      console.log("Found Station:", station);
+      setCurrentStation(station);
+    } else {
+      console.log("No station found with the given ID.");
+      setCurrentStation(null);
+    }
+  };
 
   const [likedChannels, setLikedChannels] = useState(() => {
     try {
@@ -165,43 +165,32 @@ function App() {
         likedChannelsRef,
         sortableContainer,
         currentStation,
-        
+
         handlePlay,
         handleVolume,
         setStation,
-        
+
         isPlaying,
         isPlayingIcon,
-        setIsPlayingIcon, 
-       
-        playerRef, 
+        setIsPlayingIcon,
+
+        playerRef,
 
         handlesMute,
         mute,
-        volume
-
-        
+        volume,
       }}
     >
       <Router>
         <div className="App">
-        <Toaster />
-          <div className="flex justify-center">
-            <div className=" w-9/12 h-screen sm:hidden flex flex-col justify-center items-center text-[24px] ">
-              {/* {" "} */}
-              Mobile Version coming...
-              <p className="text-center text-[14px]">
-                I am currently trying to make to rebuild everything with reactjs
-                my way this time.
-                <br />
-              </p>
-            </div>
-          </div>
+          <Toaster />
+        
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:id" element={<Station />} />
+          </Routes>
         </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<Station />} />
-        </Routes>
       </Router>
     </GlobalData.Provider>
   );

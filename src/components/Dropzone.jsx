@@ -60,7 +60,6 @@ const Dropzone = () => {
       });
     }
   
-    // Cleanup to prevent memory leaks
     return () => {
       if (sortableInstance) {
         sortableInstance.destroy();
