@@ -114,6 +114,29 @@ function App() {
   const likedChannelsRef = useRef(likedChannels);
   const sortableContainer = useRef(null);
 
+  // const handleLike = (currentChannelName) => {
+  //   const updatedData = channelData.map((category) => ({
+  //     ...category,
+  //     channels: category.channels.map((channel) =>
+  //       channel.channelName === currentChannelName
+  //         ? { ...channel, isLiked: !channel.isLiked }
+  //         : channel
+  //     ),
+  //   }));
+  //   setChannelData(updatedData);
+
+  //   const noRepeatedLiked = updatedData
+  //     .flatMap((category) => category.channels)
+  //     .filter(
+  //       (channel, index, self) =>
+  //         channel.isLiked &&
+  //         self.findIndex((c) => c.channelName === channel.channelName) === index
+  //     );
+
+  //   setLikedChannels(noRepeatedLiked);
+  // };
+  
+
   const handleLike = (currentChannelName) => {
     const updatedData = channelData.map((category) => ({
       ...category,
@@ -124,18 +147,22 @@ function App() {
       ),
     }));
     setChannelData(updatedData);
-
-    const noRepeatedLiked = updatedData
+  
+    // Extract liked channels and maintain their order
+    const likedSet = new Set(likedChannels.map((c) => c.channelName)); 
+    const newLikedChannels = updatedData
       .flatMap((category) => category.channels)
-      .filter(
-        (channel, index, self) =>
-          channel.isLiked &&
-          self.findIndex((c) => c.channelName === channel.channelName) === index
-      );
-
-    setLikedChannels(noRepeatedLiked);
+      .filter((channel) => channel.isLiked);
+  
+    // Ensure new channels are added at the end
+    const orderedLikedChannels = [
+      ...likedChannels.filter((c) => newLikedChannels.some((nc) => nc.channelName === c.channelName)), 
+      ...newLikedChannels.filter((c) => !likedSet.has(c.channelName))
+    ];
+  
+    setLikedChannels(orderedLikedChannels);
   };
-
+  
   const handleRemove = (currentChannelName) => {
     const updatedLikedChannels = likedChannels.filter(
       (channel) => channel.channelName !== currentChannelName

@@ -5,6 +5,10 @@ import MobileChannels from "./MobileChannels";
 import MobileHeader from "./MobileHeader";
 import MobileLayout from "../Layout/MobileLayout";
 function Home() {
+  const isMobileDevice = () => {
+    return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+  };
+  
   return (
     <div>
      
