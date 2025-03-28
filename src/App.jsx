@@ -102,88 +102,39 @@ function App() {
       setCurrentStation(null);
     }
   };
-// Initialize likedChannels and likedChannelsOrder from localStorage
-const [likedChannels, setLikedChannels] = useState(() => {
-  try {
-    const savedLikedChannels = localStorage.getItem("likedChannels");
-    return savedLikedChannels ? JSON.parse(savedLikedChannels) : [];
-  } catch {
-    return [];
-  }
-});
 
-const [likedChannelsOrder, setLikedChannelsOrder] = useState(() => {
-  try {
-    const savedOrder = localStorage.getItem("likedChannelsOrder");
-    return savedOrder ? JSON.parse(savedOrder) : [];
-  } catch {
-    return [];
-  }
-});
-
-// On mount, restore likedChannels in the saved order (if it exists)
-useEffect(() => {
-  const savedLikedChannels = localStorage.getItem("likedChannels");
-  const savedOrder = localStorage.getItem("likedChannelsOrder");
-
-  if (savedLikedChannels && savedOrder) {
-    const parsedLikedChannels = JSON.parse(savedLikedChannels);
-    const parsedOrder = JSON.parse(savedOrder);
-
-    // Reorder liked channels based on the saved order array
-    const orderedLikedChannels = parsedOrder
-      .map((channelName) =>
-        parsedLikedChannels.find((ch) => ch.channelName === channelName)
-      )
-      .filter(Boolean); // remove any undefined values
-
-    setLikedChannels(orderedLikedChannels);
-  }
-}, []);
-
-// Whenever likedChannels changes, update localStorage for both the liked channels and their order.
-useEffect(() => {
-  localStorage.setItem("likedChannels", JSON.stringify(likedChannels));
-  localStorage.setItem(
-    "likedChannelsOrder",
-    JSON.stringify(likedChannels.map((ch) => ch.channelName))
-  );
-}, [likedChannels]);
-
-
-const handleLike = (currentChannelName) => {
-  // Toggle the isLiked flag in channelData
-  const updatedData = channelData.map((category) => ({
-    ...category,
-    channels: category.channels.map((channel) =>
-      channel.channelName === currentChannelName
-        ? { ...channel, isLiked: !channel.isLiked }
-        : channel
-    ),
-  }));
-  setChannelData(updatedData);
-
-  // Get the updated list of liked channels from the updated data.
-  const liked = updatedData
-    .flatMap((category) => category.channels)
-    .filter((channel) => channel.isLiked);
-
-  // Update likedChannels: remove any occurrence of the toggled channel,
-  // then if it is liked, add it to the END.
-  setLikedChannels((prevLikedChannels) => {
-    const filteredPrevLiked = prevLikedChannels.filter(
-      (channel) => channel.channelName !== currentChannelName
-    );
-    const newlyLikedChannel = liked.find(
-      (channel) => channel.channelName === currentChannelName
-    );
-
-    return newlyLikedChannel
-      ? [...filteredPrevLiked, newlyLikedChannel]
-      : filteredPrevLiked;
+  const [likedChannels, setLikedChannels] = useState(() => {
+    try {
+      const savedLikedChannels = localStorage.getItem("likedChannels");
+      return savedLikedChannels ? JSON.parse(savedLikedChannels) : [];
+    } catch {
+      return [];
+    }
   });
-};
+  const likedChannelsRef = useRef(likedChannels);
+  const sortableContainer = useRef(null);
 
+  const handleLike = (currentChannelName) => {
+    const updatedData = channelData.map((category) => ({
+      ...category,
+      channels: category.channels.map((channel) =>
+        channel.channelName === currentChannelName
+          ? { ...channel, isLiked: !channel.isLiked }
+          : channel
+      ),
+    }));
+    setChannelData(updatedData);
+
+    const noRepeatedLiked = updatedData
+      .flatMap((category) => category.channels)
+      .filter(
+        (channel, index, self) =>
+          channel.isLiked &&
+          self.findIndex((c) => c.channelName === channel.channelName) === index
+      );
+
+    setLikedChannels(noRepeatedLiked);
+  };
 
   const handleRemove = (currentChannelName) => {
     const updatedLikedChannels = likedChannels.filter(
@@ -199,7 +150,7 @@ const handleLike = (currentChannelName) => {
           : channel
       ),
     }));
-    setChannelData(updatedData, channelData);
+    setChannelData(updatedData);
   };
 
   return (
@@ -211,8 +162,8 @@ const handleLike = (currentChannelName) => {
         setLikedChannels,
         handleLike,
         handleRemove,
-        // likedChannelsRef,
-        // sortableContainer,
+        likedChannelsRef,
+        sortableContainer,
         currentStation,
 
         handlePlay,
@@ -233,6 +184,7 @@ const handleLike = (currentChannelName) => {
       <Router>
         <div className="App">
           <Toaster />
+        
 
           <Routes>
             <Route path="/" element={<Home />} />

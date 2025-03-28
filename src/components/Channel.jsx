@@ -21,7 +21,7 @@ const Channel = ({ channel,link, handleLike, id }) => {
         <img className=" w-[20px] h-[20px] " src={channel.image} alt="logo" />
       
       
-        <button className='text-[15px] font-normal text-[#393939] text-right' onClick={handleStationPlay}>{channel.channelName}</button>
+        <button className='sm:text-[15px] text-[20px] font-normal text-[#393939] text-right' onClick={handleStationPlay}>{channel.channelName}</button>
         {/* <button className='text-[15px] font-normal text-[#393939] text-right' onClick={() => navigate(`${stationUrl}${id}`)}>{channel.channelName}</button> */}
       </div>
       <button onClick={() => handleLike(channel.channelName)} className="p-2 cursor-pointer">

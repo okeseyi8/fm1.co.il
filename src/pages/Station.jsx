@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import Bottomplayer from "../components/Bottomplayer";
 import { toast } from "react-hot-toast";
 import MobileHeader from "../components/MobileHeader";
+import MobileChannels from "../components/MobileChannels";
 const Station = () => {
   const Location = useLocation();
 
@@ -71,12 +72,46 @@ const Station = () => {
     <div>
       <div className="sm:hidden h-full">
         <MobileHeader />
-        <div className="h-[500px] flex items-center">
-          <div className="w-full h-full flex justify-center items-center">
+        <div className="  flex py-[70px] ">
+          <div className="w-full h-full flex flex-col  items-center gap-4 ">
+            <div className="w-[250px] flex items-center   gap-3">
+            <img
+                        className="w-[70px] h-[70px] object-cover border-1  border-[#f1f1f1] rounded-[10px]"
+                        src={currentStation.image}
+                      />
+              <p className="text-[#47add8] text-[21px] font-bold">{currentStation.channelName}</p>
+             
+            </div>
             <Player />
+            <div>
+              <img src="\images\stations\ad-336x280.jpg" />
+            </div>
             
           </div>
         </div>
+        <MobileChannels />
+        <div  className="h-[100px] pr-2">
+            <h1 dir="rtl" className=" text-[21px] font-bold">
+              אודות :{currentStation.channelName}
+            </h1>
+             <p dir="rtl">
+               {currentStation.stationNote}
+             </p>
+        </div>
+        
+          <div dir='rtl' className='bg-[#DEDEDE] lg:h-[80px] h-auto flex flex-col items-center justify-center px-4'>
+              
+               <p className=' text-[16px] text-[#6b6b6b]'>
+                 © כל הזכויות שמורות לאתר רדיו fm1 - אתר תחנות רדיו בשידור חי באינטרנט כולל תחנות רדיו בישראל בשידור חי
+               </p>
+               <a href='https://acum.org.il' target='_blank' rel='noopener noreferrer'>
+                 <img src={Acum} alt='Acum Logo' />
+               </a>
+             </div>
+        
+        
+       
+         <div className='h-[100px]'></div>
 
         <Bottomplayer />
       </div>

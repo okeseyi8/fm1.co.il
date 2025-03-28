@@ -71,7 +71,7 @@ function Bottomplayer() {
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
               <div  dir="rtl" className='flex flex-col  font-normal text-[12px] text-[#009fce]'>
-               <p>
+               <p className='sm:block hidden'>
                  {currentStation.channelName} <br />
                  מנגן עכשיו
                </p>
