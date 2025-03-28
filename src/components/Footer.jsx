@@ -3,8 +3,8 @@ import Acum from '../images/acum.png';
 
 function Footer() {
   return (
-    <div dir='rtl' className='bg-[#DEDEDE] lg:h-[80px] h-auto flex flex-col items-center justify-center'>
-      hi
+    <div dir='rtl' className='bg-[#DEDEDE] lg:h-[80px] h-auto flex flex-col items-center justify-center sm:py-0 py-7 sm:px-0 px-4'>
+      
       <p className=' text-[16px] text-[#6b6b6b]'>
         © כל הזכויות שמורות לאתר רדיו fm1 - אתר תחנות רדיו בשידור חי באינטרנט כולל תחנות רדיו בישראל בשידור חי
       </p>
