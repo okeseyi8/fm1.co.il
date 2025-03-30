@@ -36,13 +36,13 @@ function Channels() {
             >
               <div className="flex flex-row-reverse items-center gap-2">
                 <h1  className="text-[25px] sm:text-[18px] font-normal sm:font-medium">{category.channelCategoryName}</h1>
-                <span  onClick={() => toggleCollapse(category.id)} className="sm:hidden text-[25px] mr-4"> 
+                <button onClick={() => toggleCollapse(category.id)} className="sm:hidden flex items-center text-[25px] mr-4"> 
                 {location.pathname.startsWith(pathtoShowCollapse) && (
              
-                  !isCollapsed ? <IoIosArrowDown/> : <IoIosArrowBack /> 
+                  !isCollapsed ? <button onClick={() => toggleCollapse(category.id)} className=""> <IoIosArrowDown/> </button> : <button onClick={() => toggleCollapse(category.id)} className="">  <IoIosArrowBack /> </button>
             
               )}
-                </span>
+                </button>
                 
               </div>
               {location.pathname.startsWith(pathtoShowCollapse) && (

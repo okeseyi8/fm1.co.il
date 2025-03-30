@@ -34,9 +34,18 @@ const MobileHeader = () => {
           >
             <div className="w-[200px] bg-white p-4 shadow-md">
               <ul dir="rtl">
-                <li className="py-1 hover:bg-gray-100">רדיו
+                <li className="py-1 hover:bg-gray-100"
+                ><a href="https://www.google.co.il/">
+                   
+                   רדיו
+                </a>
+                
+                
                 </li>
-                <li className="py-1 hover:bg-gray-100">צור קשר
+                <li className="py-1 hover:bg-gray-100"
+                >
+                <a href="https://www.yahoo.com">צור קשר
+                </a>
                 </li>
               
                 {/* <li className="py-1 hover:bg-gray-100">Menu Item 3</li>

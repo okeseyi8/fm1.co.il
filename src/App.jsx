@@ -1,4 +1,4 @@
-import { useState, createContext, useRef, useEffect, useMemo } from "react";
+import { useState, createContext, useRef,useCallback, useEffect, useMemo } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -39,12 +39,7 @@ function App() {
   const [isPlayingIcon, setIsPlayingIcon] = useState(false); // State for the icon
   const isPlaying = useRef(false); // Ref for tracking play/pause status without re-renders
   const { id } = useParams();
-  // useEffect(() => {
-  //   if (currentStation && isPlaying.current) {
-  //     playerRef.src = currentStation.link;
-  //     playerRef.play();
-  //   }
-  // }, [currentStation, playerRef]); // Only update when station changes
+ 
   const handlePlay = async () => {
     if (isPlayingIcon) {
       playerRef.pause();
@@ -112,30 +107,42 @@ function App() {
     }
   });
   const likedChannelsRef = useRef(likedChannels);
-  const sortableContainer = useRef(null);
+ 
 
-  const handleLike = (currentChannelName) => {
-    const updatedData = channelData.map((category) => ({
-      ...category,
-      channels: category.channels.map((channel) =>
-        channel.channelName === currentChannelName
-          ? { ...channel, isLiked: !channel.isLiked }
-          : channel
-      ),
-    }));
-    setChannelData(updatedData);
+  // const handleLike = (currentChannelName) => {
+  //   const updatedData = channelData.map((category) => ({
+  //     ...category,
+  //     channels: category.channels.map((channel) =>
+  //       channel.channelName === currentChannelName
+  //         ? { ...channel, isLiked: !channel.isLiked }
+  //         : channel
+  //     ),
+  //   }));
+  //   setChannelData(updatedData);
 
-    const noRepeatedLiked = updatedData
-      .flatMap((category) => category.channels)
-      .filter(
-        (channel, index, self) =>
-          channel.isLiked &&
-          self.findIndex((c) => c.channelName === channel.channelName) === index
-      );
+  //   const noRepeatedLiked = updatedData
+  //     .flatMap((category) => category.channels)
+  //     .filter(
+  //       (channel, index, self) =>
+  //         channel.isLiked &&
+  //         self.findIndex((c) => c.channelName === channel.channelName) === index
+  //     );
 
-    setLikedChannels(noRepeatedLiked);
-  };
+  //   setLikedChannels(noRepeatedLiked);
+  // };
 
+  const handleLike = useCallback((currentChannelName) => {
+    setChannelData((prevData) =>
+      prevData.map((category) => ({
+        ...category,
+        channels: category.channels.map((channel) =>
+          channel.channelName === currentChannelName
+            ? { ...channel, isLiked: !channel.isLiked }
+            : channel
+        ),
+      }))
+    );
+  }, []);
   const handleRemove = (currentChannelName) => {
     const updatedLikedChannels = likedChannels.filter(
       (channel) => channel.channelName !== currentChannelName
@@ -163,7 +170,7 @@ function App() {
         handleLike,
         handleRemove,
         likedChannelsRef,
-        sortableContainer,
+      
         currentStation,
 
         handlePlay,

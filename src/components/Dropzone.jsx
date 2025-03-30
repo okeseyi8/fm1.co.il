@@ -19,13 +19,13 @@ const Dropzone = ({isMobile}) => {
   const navigateFavStation = useNavigate();
   const {
     channelData,
-    setChannelData,
+   
     likedChannels,
     setLikedChannels,
-    handleLike,
+    
     handleRemove,
     likedChannelsRef,
-    sortableContainer,
+   
   } = useContext(GlobalData);
 
   useEffect(() => {
@@ -53,35 +53,7 @@ const Dropzone = ({isMobile}) => {
     localStorage.setItem("channelData", JSON.stringify(channelData));
   }, [channelData]);
 
-  useEffect(() => {
-    let sortableInstance;
-
-    if (sortableContainer.current) {
-      if (sortableInstance) {
-        sortableInstance.destroy();
-      }
-
-      sortableInstance = new Sortable(sortableContainer.current, {
-        animation: 150,
-        invertSwap: true, // 🔹 Fix for RTL mode
-        swapThreshold: 0.65, // 🔹 Adjust swap sensitivity
-        direction: "rtl", // 🔹 Make sure sorting works in RTL
-        onEnd: () => {
-          const currentLikedChannels = likedChannelsRef.current;
-          const updatedOrder = Array.from(sortableContainer.current.children).map((child) =>
-            currentLikedChannels.find((channel) => channel.channelName === child.dataset.id)
-          );
-          setLikedChannels(updatedOrder);
-        },
-      });
-    }
-
-    return () => {
-      if (sortableInstance) {
-        sortableInstance.destroy();
-      }
-    };
-  }, [likedChannels]);
+ 
     // Local state to control the collapsible for mobile
     const [collapseLiked, setCollapseLiked] = useState(false);
 
@@ -129,12 +101,12 @@ const Dropzone = ({isMobile}) => {
                 />
                 <button
                   onClick={() => handleRemove(channel.channelName)}
-                  className="remove-button absolute top-[1px] left-[12px] text-[#ff0000] text-[18px]"
+                  className="remove-button absolute top-[1px] left-[8px] text-[#ff0000] text-[24px]"
                 >
                   <FaXmark />
                 </button>
                 <div className="mr-2">
-                  <h3 className="text-[20px] font-normal text-[rgb(57,57,57)]">{channel.channelName}</h3>
+                  <h3 onClick={() => navigateFavStation(`/${channel.engName}`)} className="text-[20px] font-normal text-[rgb(57,57,57)]">{channel.channelName}</h3>
                 </div>
               </li>
             ))

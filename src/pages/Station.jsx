@@ -33,16 +33,34 @@ const Station = () => {
     if (channelData.length > 0) {
       setStation(id, channelData);
     }
-
-    // Cleanup logic only when the component unmounts
+  }, [id, channelData]);
+  
+  // Separate effect for cleanup on unmount only
+  useEffect(() => {
     return () => {
       if (isPlaying.current) {
         isPlaying.current = false;
-
-        playerRef.current?.pause(); // Pause the player
+        // Use playerRef directly since it is a memoized Audio instance
+        playerRef.pause();
       }
     };
-  }, [id, channelData, setStation, setIsPlaying, playerRef]);
+  }, [id]); 
+
+
+  // useEffect(() => {
+  //   if (channelData.length > 0) {
+  //     setStation(id, channelData);
+  //   }
+
+  //   // Cleanup logic only when the component unmounts
+  //   return () => {
+  //     if (isPlaying.current) {
+  //       isPlaying.current = false;
+
+  //       playerRef.current?.pause(); // Pause the player
+  //     }
+  //   };
+  // }, [id, channelData]);
 
   useEffect(() => {
     if (currentStation && currentStation.link) {
@@ -72,14 +90,14 @@ const Station = () => {
     <div>
       <div className="sm:hidden h-full">
         <MobileHeader />
-        <div className="  flex py-[70px] ">
+        <div className="  flex pt-[10px] pb-[10px] ">
           <div className="w-full h-full flex flex-col  items-center gap-4 ">
-            <div className="w-[250px] flex items-center   gap-3">
+            <div className="w-full flex flex-row-reverse items-center justify-center  gap-2 ">
             <img
-                        className="w-[70px] h-[70px] object-cover border-1  border-[#f1f1f1] rounded-[10px]"
+                        className="w-[40px] h-[40px] object-cover border-1  border-[#f1f1f1] rounded-[10px]"
                         src={currentStation.image}
                       />
-              <p className="text-[#47add8] text-[21px] font-bold">{currentStation.channelName}</p>
+              <p dir="rtl" className="text-[#47add8] text-[27px] font-bold">{currentStation.channelName}</p>
              
             </div>
             <Player />
@@ -90,7 +108,7 @@ const Station = () => {
           </div>
         </div>
         <MobileChannels />
-        <div  className="h-[100px] pr-2">
+        <div  className="h-auto pr-2">
             <h1 dir="rtl" className=" text-[21px] font-bold">
               אודות :{currentStation.channelName}
             </h1>
@@ -98,20 +116,10 @@ const Station = () => {
                {currentStation.stationNote}
              </p>
         </div>
-        
-          <div dir='rtl' className='bg-[#DEDEDE] lg:h-[80px] h-auto flex flex-col items-center justify-center px-4'>
-              
-               <p className=' text-[16px] text-[#6b6b6b]'>
-                 © כל הזכויות שמורות לאתר רדיו fm1 - אתר תחנות רדיו בשידור חי באינטרנט כולל תחנות רדיו בישראל בשידור חי
-               </p>
-               <a href='https://acum.org.il' target='_blank' rel='noopener noreferrer'>
-                 <img src={Acum} alt='Acum Logo' />
-               </a>
-             </div>
-        
-        
+  
+        <Footer />
        
-         <div className='h-[100px]'></div>
+         <div className='h-[70px]'></div>
 
         <Bottomplayer />
       </div>
@@ -184,7 +192,9 @@ const Station = () => {
           </div>
         </div>
         <div className="pt-2 mb-[100px]">
+          
           <Footer />
+         
         </div>
         <Bottomplayer />
       </div>
