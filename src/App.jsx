@@ -22,14 +22,31 @@ import MobileChannels from "./components/MobileChannels";
 export const GlobalData = createContext();
 
 function App() {
-  const [channelData, setChannelData] = useState(() => {
-    try {
-      const savedData = localStorage.getItem("channelData");
-      return savedData ? JSON.parse(savedData) : data;
-    } catch {
-      return data;
-    }
-  });
+
+const [channelData, setChannelData] = useState([]);
+
+useEffect(() => {
+  const savedData = localStorage.getItem("channelData");
+  const parsedData = savedData ? JSON.parse(savedData) : null;
+
+  if (parsedData && parsedData.length > 0) {
+    // Condition 1: Use localStorage if it contains data
+    setChannelData(parsedData);
+    console.log("hi i am fetching unsuccessful");
+  } else {
+    // Condition 2: Fetch new data if localStorage is empty
+    console.log("hi i am fetching");
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((jsonData) => {
+        setChannelData(jsonData.stations); // Set new data
+        localStorage.setItem("channelData", JSON.stringify(jsonData.stations)); // Save to localStorage
+      })
+      .catch((error) => console.error("Error loading data:", error));
+  }
+}, []);
+
+
   const [mute, setMute] = useState(false);
   const [currentStation, setCurrentStation] = useState({});
   const [volume, setVolume] = useState(20);
@@ -109,46 +126,41 @@ function App() {
   const likedChannelsRef = useRef(likedChannels);
  
 
-  // const handleLike = (currentChannelName) => {
-  //   const updatedData = channelData.map((category) => ({
-  //     ...category,
-  //     channels: category.channels.map((channel) =>
-  //       channel.channelName === currentChannelName
-  //         ? { ...channel, isLiked: !channel.isLiked }
-  //         : channel
-  //     ),
-  //   }));
-  //   setChannelData(updatedData);
+ 
 
-  //   const noRepeatedLiked = updatedData
-  //     .flatMap((category) => category.channels)
-  //     .filter(
-  //       (channel, index, self) =>
-  //         channel.isLiked &&
-  //         self.findIndex((c) => c.channelName === channel.channelName) === index
-  //     );
-
-  //   setLikedChannels(noRepeatedLiked);
-  // };
-
-  const handleLike = useCallback((currentChannelName) => {
-    setChannelData((prevData) =>
-      prevData.map((category) => ({
-        ...category,
-        channels: category.channels.map((channel) =>
-          channel.channelName === currentChannelName
-            ? { ...channel, isLiked: !channel.isLiked }
-            : channel
-        ),
-      }))
-    );
-  }, []);
+  const handleLike = useCallback((currentChannelName) => { 
+    const updatedData = channelData.map((category) => ({
+      ...category,
+      channels: category.channels.map((channel) =>
+        channel.channelName === currentChannelName
+          ? { ...channel, isLiked: !channel.isLiked }
+          : channel
+      ),
+    }));
+  
+    setChannelData(updatedData);
+    localStorage.setItem("channelData", JSON.stringify(updatedData)); // Save updated channelData to localStorage
+  
+    const noRepeatedLiked = updatedData
+      .flatMap((category) => category.channels)
+      .filter(
+        (channel, index, self) =>
+          channel.isLiked &&
+          self.findIndex((c) => c.channelName === channel.channelName) === index
+      );
+  
+    setLikedChannels(noRepeatedLiked);
+    localStorage.setItem("likedChannels", JSON.stringify(noRepeatedLiked)); // Save likedChannels to localStorage
+  }, [channelData]);
+  
   const handleRemove = (currentChannelName) => {
+    // Filter out the removed channel from likedChannels
     const updatedLikedChannels = likedChannels.filter(
       (channel) => channel.channelName !== currentChannelName
     );
     setLikedChannels(updatedLikedChannels);
-
+    localStorage.setItem("likedChannels", JSON.stringify(updatedLikedChannels)); // Save to localStorage
+  
     const updatedData = channelData.map((category) => ({
       ...category,
       channels: category.channels.map((channel) =>
@@ -157,8 +169,11 @@ function App() {
           : channel
       ),
     }));
+  
     setChannelData(updatedData);
+    localStorage.setItem("channelData", JSON.stringify(updatedData)); // Save to localStorage
   };
+  
 
   return (
     <GlobalData.Provider

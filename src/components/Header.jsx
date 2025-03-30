@@ -51,10 +51,9 @@ const Header = () => {
               <a className='cursor-pointer' onClick={() => navigate("/")}> <img  src={logo}/></a>
                   
                 <ul dir='rtl' className='flex w-full pt-2 justify-evenly text-[#7fbcd1]  '>
-                      <li dir='rtl'><a href="/" class="nav-link">רדיו</a></li>
-                      <li dir='rtl'><a href="/" className="nav-link" >צור קשר</a></li>
-                      <li dir='rtl'><a href= "/" className="nav-link" >רדיו</a></li>
-                      <li dir='rtl'><a href="/" className="nav-link" >צור קשר</a></li>
+                      <li dir='rtl'><a href="https://www.google.co.il/" class="nav-link">רדיו</a></li>
+                      <li dir='rtl'><a href="https://www.yahoo.com" className="nav-link" >צור קשר</a></li>
+                     
                 </ul>
             </div>
          

@@ -44,17 +44,7 @@ const Dropzone = ({isMobile}) => {
     setLikedChannels(liked);
   }, [channelData]);
 
-  useEffect(() => {
-    likedChannelsRef.current = likedChannels;
-    localStorage.setItem("likedChannels", JSON.stringify(likedChannels));
-  }, [likedChannels]);
 
-  useEffect(() => {
-    localStorage.setItem("channelData", JSON.stringify(channelData));
-  }, [channelData]);
-
- 
-    // Local state to control the collapsible for mobile
     const [collapseLiked, setCollapseLiked] = useState(false);
 
     // For mobile, the header with the title and arrow icon toggles collapse
@@ -126,12 +116,13 @@ const Dropzone = ({isMobile}) => {
             {likedChannels.map((channel) => (
               <li
                 data-id={channel.channelName}
-                className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] hover:bg-[#4CA1C4] rounded-[10px]"
+                className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] hover:bg-[#808080] rounded-[10px]"
                 key={channel.channelName}
               >
                 <img
+                  className="hover:bg-[#808080] w-[60px] h-[60px]"
                   onClick={() => navigateFavStation(`/${channel.engName}`)}
-                  className="w-[60px] h-[60px]"
+                
                   src={channel.image}
                   alt={channel.channelName}
                 />
