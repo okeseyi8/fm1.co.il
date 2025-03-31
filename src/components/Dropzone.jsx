@@ -97,7 +97,7 @@ const Dropzone = ({isMobile}) => {
                   <FaXmark />
                 </button>
                 <div className="mr-2">
-                  <h3 onClick={() => navigateFavStation(`/${channel.engName}`)} className="text-[20px] font-normal text-[rgb(57,57,57)]"><a href={`/${channel.engName}`}>{channel.channelName}</a></h3>
+                  <h3 onClick={() => navigateFavStation(`/${channel.engName}`)} className="text-[20px] font-normal text-[rgb(57,57,57)]">{channel.channelName}</h3>
                 </div>
               </li>
             ))

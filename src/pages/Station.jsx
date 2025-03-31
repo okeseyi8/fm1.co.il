@@ -178,7 +178,7 @@ const Station = () => {
                     </div>
                     <p
                       dir="rtl"
-                      className="text-[14px] font-normal text-[#6b6b6b] mr-3"
+                      className="text-[16px] font-normal text-[#6b6b6b] mr-3"
                     >
                       {currentStation.stationNote}
                     </p>
