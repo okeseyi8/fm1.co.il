@@ -109,7 +109,7 @@ const Station = () => {
         </div>
         <MobileChannels />
         <div  className="h-auto pr-2">
-            <h1 dir="rtl" className=" text-[21px] font-bold">
+            <h1 dir="rtl" className=" text-[21px] font-normal">
               אודות :{currentStation.channelName}
             </h1>
              <p dir="rtl">

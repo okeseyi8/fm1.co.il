@@ -71,16 +71,18 @@ function Bottomplayer() {
             </div>
             <div className=' w-[60%] flex justify-end  items-center gap-4'>
               <div  dir="rtl" className='flex flex-col  font-normal text-[12px] text-[#009fce]'>
-               <p className='sm:block hidden'>
-                 {currentStation.channelName} <br />
+               <p className='sm:block hidden'><a  href={`/${currentStation.engName}`}>{currentStation.channelName} </a>
+   <br />
                  מנגן עכשיו
                </p>
                 
                 
               </div>
-              <button  className='cursor-pointer' onClick={() => navigate(`${stationUrl}${currentStation.channelName}`)}>
-                
-                <img className='w-10 h-10' src={currentStation.image}/>
+              <button  className='cursor-pointer' >
+              <a  href={`/${currentStation.engName}`}>
+              <img className='w-10 h-10' src={currentStation.image}/>
+              </a>
+               
               </button>
             </div>
           </div>

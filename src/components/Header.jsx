@@ -48,11 +48,13 @@ const Header = () => {
                 
             </div>
             <div className='w-[60%] h-auto flex flex-col items-end'>
-              <a className='cursor-pointer' onClick={() => navigate("/")}> <img  src={logo}/></a>
+              <a href="/" className='cursor-pointer' > <img  src={logo}/></a>
                   
                 <ul dir='rtl' className='flex w-full pt-2 justify-evenly text-[#7fbcd1]  '>
                       <li dir='rtl'><a href="https://www.google.co.il/" class="nav-link">רדיו</a></li>
                       <li dir='rtl'><a href="https://www.yahoo.com" className="nav-link" >צור קשר</a></li>
+                      <li dir='rtl'> <a href="/" onClick={() => localStorage.clear()} >איפוס תחנות מועדפות
+                      </a></li>
                      
                 </ul>
             </div>

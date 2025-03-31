@@ -46,7 +46,7 @@ const Dropzone = ({isMobile}) => {
 
 
     const [collapseLiked, setCollapseLiked] = useState(false);
-
+    const [hoverColor, setHoverColor] = useState(false)
     // For mobile, the header with the title and arrow icon toggles collapse
     const toggleCollapseLiked = () => {
       setCollapseLiked((prev) => !prev);
@@ -90,13 +90,14 @@ const Dropzone = ({isMobile}) => {
                   alt={channel.channelName}
                 />
                 <button
+                
                   onClick={() => handleRemove(channel.channelName)}
-                  className="remove-button absolute top-[1px] left-[8px] text-[#ff0000] text-[24px]"
+                  className=" absolute top-[1px] mt-[3px] flex items-center left-[8px] text-[#ff0000] text-[26px] opacity-40"
                 >
                   <FaXmark />
                 </button>
                 <div className="mr-2">
-                  <h3 onClick={() => navigateFavStation(`/${channel.engName}`)} className="text-[20px] font-normal text-[rgb(57,57,57)]">{channel.channelName}</h3>
+                  <h3 onClick={() => navigateFavStation(`/${channel.engName}`)} className="text-[20px] font-normal text-[rgb(57,57,57)]"><a href={`/${channel.engName}`}>{channel.channelName}</a></h3>
                 </div>
               </li>
             ))
@@ -116,17 +117,22 @@ const Dropzone = ({isMobile}) => {
             {likedChannels.map((channel) => (
               <li
                 data-id={channel.channelName}
-                className="channel-item relative flex p-[6px] mt-3 bg-[#ddd] hover:bg-[#808080] rounded-[10px]"
+                className={`channel-item relative cursor-pointer flex p-[6px] mt-3 bg-[#ddd] hover:bg-[#4ca1c4] rounded-[10px] ${
+                  hoverColor ? "bg-[#ddd] hover:bg-[#ddd] " : ""
+                }`}
                 key={channel.channelName}
               >
                 <img
-                  className="hover:bg-[#808080] w-[60px] h-[60px]"
+                  className="w-[60px] h-[60px]"
                   onClick={() => navigateFavStation(`/${channel.engName}`)}
                 
                   src={channel.image}
                   alt={channel.channelName}
                 />
                 <button
+                    onMouseEnter={() => setHoverColor(true)}
+                    onMouseLeave={() => setHoverColor(false)}
+  
                   onClick={() => handleRemove(channel.channelName)}
                   className="remove-button absolute top-[1px] left-[1px] text-[#ff0000] text-[18px]"
                 >

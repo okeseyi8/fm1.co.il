@@ -7,22 +7,22 @@ const MobileHeader = () => {
 
   return (
     <div className="relative w-full flex bg-[#253447] justify-between items-center px-5">
-      <div></div>
-      <div>
+      <div className='w-[10%]'></div>
+      <div className=''>
         <a href='/'>
-          <img className="w-[100px] my-2 ml-8" src="/images/fmlogo.jpg" alt="Logo" />
+          <img className="w-[100px] my-2 " src="/images/fmlogo.jpg" alt="Logo" />
         </a>
 
       </div>
       <div
         className=" text-white flex items-center mt-3"
-        onMouseEnter={() => setMenuActive(true)}
+       
        
       >
         
 
-        {menuActive ? <div className='text-[28px]' onMouseEnter={() => setMenuActive(false)}
-       ><HiMiniXMark /></div> : <GiHamburgerMenu className="cursor-pointer text-2xl" />}
+        {menuActive ? <div className='text-[28px]' onClick={() => setMenuActive(false)}
+       ><HiMiniXMark /></div> : <div  onClick={() => setMenuActive(true)}><GiHamburgerMenu className="cursor-pointer text-2xl" /></div>}
         
         {menuActive && (
           <motion.div
@@ -30,22 +30,34 @@ const MobileHeader = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="absolute  top-[79px] right-0 text-black z-10"
+            className="absolute font-normal  top-[79px] right-0 text-black z-50"
           >
-            <div className="w-[200px] bg-white p-4 shadow-md">
-              <ul dir="rtl">
+            <div className="w-[200px] bg-white  text-[18px] p-4 shadow-md">
+              
+              <ul className='font-normal' dir="rtl">
+                
                 <li className="py-1 hover:bg-gray-100"
-                ><a href="https://www.google.co.il/">
-                   
+                ><a className='!font-normal text-[16px]' href="https://www.google.co.il/">
+                  
                    רדיו
                 </a>
+             
                 
                 
                 </li>
                 <li className="py-1 hover:bg-gray-100"
                 >
-                <a href="https://www.yahoo.com">צור קשר
+                <a className='!font-normal text-[16px]' href="https://www.yahoo.com">צור קשר
                 </a>
+               
+                </li>
+              
+                <li className="py-1 hover:bg-gray-100"
+                >
+                 <a className='!font-normal text-[16px]' href="/" onClick={() => localStorage.clear()} >איפוס תחנות מועדפות
+                 </a>
+                
+               
                 </li>
               
                 {/* <li className="py-1 hover:bg-gray-100">Menu Item 3</li>
