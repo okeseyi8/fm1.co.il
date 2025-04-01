@@ -18,15 +18,18 @@ const Channel = ({ channel,link, handleLike, id }) => {
     
     <div dir='rtl' className="flex justify-between items-center my-2">
       <div className="w-full flex gap-1  items-center">
+        <button  onClick={() => handleStationPlay()} >
         <img className=" w-[20px] h-[20px] " src={channel.image} alt="logo" />
-      
-        <a 
-  href={`${stationUrl}${id}`} // SEO-friendly URL
+     
+        </button>
+     
+        <button
+  // SEO-friendly URL
   onClick={() => handleStationPlay()} // Client-side navigation
   className="sm:text-[15px] text-[20px] font-normal text-[#393939] text-right"
 >
   {channel.channelName}
-</a>
+</button>
         {/* <button className='text-[15px] font-normal text-[#393939] text-right' onClick={handleStationPlay}>{channel.channelName}</button> */}
         {/* <button className='text-[15px] font-normal text-[#393939] text-right' onClick={() => navigate(`${stationUrl}${id}`)}>{channel.channelName}</button> */}
       </div>
